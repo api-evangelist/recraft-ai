@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recraft Images API — Vector Tooling
+  description: 'Recraft Images API — vector-specific surfaces including the dedicated vector generation endpoint and the
+    raster-to-vector vectorize endpoint. 2 operations. Lead operation: Recraft Vectorize Raster Image. Self-contained
+    Naftiko capability covering Recraft''s vector business surface.'
+  tags:
+  - Recraft
+  - Vector
+  - SVG
+  - Vectorize
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RECRAFT_API_TOKEN: RECRAFT_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: images-vector
+    baseUri: https://external.api.recraft.ai
+    description: Recraft Images API — Vector business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-images-vectorize
+      path: /v1/images/vectorize
+      operations:
+      - name: vectorize
+        method: POST
+        description: Recraft Vectorize Raster Image To SVG
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Multipart form body with the image file.
+          required: true
+    - name: v1-images-generations-vector
+      path: /v1/images/generations/vector
+      operations:
+      - name: createvector
+        method: POST
+        description: Recraft Create Vector Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.RECRAFT_API_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: images-vector-rest
+    port: 8080
+    description: REST adapter for Recraft Images API — Vector.
+    resources:
+    - path: /v1/images/vectorize
+      name: v1-images-vectorize
+      description: REST surface for vectorize.
+      operations:
+      - method: POST
+        name: vectorize
+        description: Recraft Vectorize Raster Image
+        call: images-vector.vectorize
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/images/generations/vector
+      name: v1-images-generations-vector
+      description: REST surface for vector generation.
+      operations:
+      - method: POST
+        name: createvector
+        description: Recraft Create Vector Image
+        call: images-vector.createvector
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: images-vector-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Recraft Images API — Vector.
+    tools:
+    - name: recraft-vectorize
+      description: Recraft Vectorize Raster Image To SVG
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-vector.vectorize
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-create-vector
+      description: Recraft Create Vector Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-vector.createvector
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

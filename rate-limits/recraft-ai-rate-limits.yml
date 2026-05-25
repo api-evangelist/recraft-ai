@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Recraft
+providerId: recraft-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - AI
+  - Image Generation
+  - Rate Limiting
+  - Quotas
+description: |
+  Reconciled rate-limit policies for the Recraft external Images API and MCP servers. Recraft documents two
+  per-user constraints — a request-rate ceiling and an image-throughput ceiling — alongside a credit/unit balance
+  precondition. Outputs are stored for approximately 24 hours behind signed URLs.
+sources:
+  - https://www.recraft.ai/docs/api-reference/appendix
+  - https://www.recraft.ai/docs/api-reference/getting-started
+algorithm: per-user-concurrency
+limits:
+  - id: requests-per-second
+    scope: user
+    metric: requests
+    window: second
+    limit: 5
+    description: Maximum HTTP requests per second per user against the external Images API.
+  - id: images-per-minute
+    scope: user
+    metric: images
+    window: minute
+    limit: 100
+    description: Maximum images generated per minute per user across all generation endpoints.
+preconditions:
+  - id: positive-unit-balance
+    appliesTo: external-http-api
+    description: API requests are accepted only while the user's API unit balance is positive. Costs are deducted on
+      success. Failures do not consume units.
+  - id: positive-credit-balance
+    appliesTo: remote-mcp
+    description: Remote MCP server operations require a positive subscription-credit balance on the connected Recraft
+      account.
+retention:
+  generatedAssets: PT24H
+  description: Signed URLs for generated images and SVGs are valid for approximately 24 hours.
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+  paymentRequired: 402
+  quotaExceeded: 429
+mcp:
+  remote:
+    endpoint: https://mcp.recraft.ai/mcp
+    auth: oauth
+    billedAgainst: subscription-credits
+  local:
+    repository: https://github.com/recraft-ai/mcp-recraft-server
+    auth: bearer-api-token
+    billedAgainst: api-units
+notes:
+  - Heavy/large requests can take several minutes to complete; clients should be patient before retrying.
+  - The OpenAI Python SDK can be used directly against /v1/images/generations as a compatibility shim.

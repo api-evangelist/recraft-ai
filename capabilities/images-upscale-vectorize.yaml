@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recraft Images API — Upscaling and Prompt Enhancement
+  description: 'Recraft Images API — utility surfaces: crisp upscale, creative upscale, and prompt enhance. 3 operations.
+    Lead operation: Recraft Crisp Upscale. Self-contained Naftiko capability covering Recraft''s post-processing and
+    prompt-shaping business surface.'
+  tags:
+  - Recraft
+  - Upscale
+  - Prompt
+  - Enhancement
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RECRAFT_API_TOKEN: RECRAFT_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: images-utility
+    baseUri: https://external.api.recraft.ai
+    description: Recraft Images API — upscaling and prompt enhancement business capability. Self-contained.
+    resources:
+    - name: v1-images-crispUpscale
+      path: /v1/images/crispUpscale
+      operations:
+      - name: crispupscale
+        method: POST
+        description: Recraft Crisp Upscale Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-creativeUpscale
+      path: /v1/images/creativeUpscale
+      operations:
+      - name: creativeupscale
+        method: POST
+        description: Recraft Creative Upscale Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-prompts-enhance
+      path: /v1/prompts/enhance
+      operations:
+      - name: enhanceprompt
+        method: POST
+        description: Recraft Enhance Prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.RECRAFT_API_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: images-utility-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Recraft Images API — utility operations.
+    tools:
+    - name: recraft-crisp-upscale
+      description: Recraft Crisp Upscale Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-utility.crispupscale
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-creative-upscale
+      description: Recraft Creative Upscale Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-utility.creativeupscale
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-enhance-prompt
+      description: Recraft Enhance Prompt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-utility.enhanceprompt
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

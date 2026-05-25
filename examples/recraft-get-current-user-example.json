@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://external.api.recraft.ai/v1/users/me",
+    "headers": {
+      "Authorization": "Bearer $RECRAFT_API_TOKEN"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "u_01HJZ8X2KH7V4Q8MW9P3R5S6T7",
+      "email": "designer@example.com",
+      "credits": 184250
+    }
+  }
+}

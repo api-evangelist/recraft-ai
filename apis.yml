@@ -1,0 +1,288 @@
+aid: recraft-ai
+url: https://raw.githubusercontent.com/api-evangelist/recraft-ai/refs/heads/main/apis.yml
+apis:
+- aid: recraft-ai:recraft-images-api
+  name: Recraft Images API
+  tags:
+  - AI
+  - Artificial Intelligence
+  - Image Generation
+  - Vector Graphics
+  - Generative AI
+  - Brand Design
+  humanURL: https://www.recraft.ai/docs/api-reference/endpoints
+  baseURL: https://external.api.recraft.ai/v1
+  properties:
+  - url: https://www.recraft.ai/docs/api-reference/getting-started
+    type: Documentation
+  - url: https://www.recraft.ai/docs/api-reference/endpoints
+    type: Documentation
+  - url: https://external.api.recraft.ai/doc/
+    name: Swagger UI
+    type: Documentation
+  - url: openapi/recraft-images-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/recraft-image-schema.json
+    type: JSONSchema
+  - url: json-schema/recraft-style-schema.json
+    type: JSONSchema
+  - url: json-ld/recraft-ai-context.jsonld
+    type: JSONLD
+  - url: capabilities/images-generation.yaml
+    type: NaftikoCapability
+  - url: capabilities/images-vector.yaml
+    type: NaftikoCapability
+  - url: capabilities/images-editing.yaml
+    type: NaftikoCapability
+  - url: capabilities/images-background.yaml
+    type: NaftikoCapability
+  - url: capabilities/images-upscale-vectorize.yaml
+    type: NaftikoCapability
+  - url: capabilities/styles.yaml
+    type: NaftikoCapability
+  - url: capabilities/users.yaml
+    type: NaftikoCapability
+  description: REST API for AI image and vector generation. Endpoints cover prompt-to-image (raster and vector),
+    image-to-image, inpainting, outpainting, background removal/replace/generate, vectorization, crisp and
+    creative upscaling, region erase, image variation, exploration, prompt enhancement, custom style creation,
+    and account/credit inspection. Authenticated with a Bearer API token from the Recraft profile; metered in
+    API units ($1 = 1,000 units) and rate-limited at 100 images/min and 5 requests/sec per user.
+- aid: recraft-ai:recraft-mcp-server
+  name: Recraft MCP Server
+  tags:
+  - AI
+  - Artificial Intelligence
+  - MCP
+  - Model Context Protocol
+  - Image Generation
+  humanURL: https://www.recraft.ai/docs/mcp-reference/getting-started
+  baseURL: https://mcp.recraft.ai/mcp
+  properties:
+  - url: https://www.recraft.ai/docs/mcp-reference/getting-started
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/remote-server
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/local-server
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/tools
+    type: Documentation
+  - url: https://github.com/recraft-ai/mcp-recraft-server
+    type: SourceCode
+  description: Model Context Protocol server giving Claude, Cursor, and other MCP clients access to Recraft's
+    image and vector generation, editing, custom styles, vectorization, background tooling, and raster
+    upscaling. Available as a hosted remote MCP server (OAuth-backed, billed against subscription credits) and
+    a self-hosted local Node.js server (API key, billed against API units).
+name: Recraft
+tags:
+- AI
+- Artificial Intelligence
+- Image Generation
+- Generative AI
+- Vector Graphics
+- Brand Design
+- Design Tools
+- Foundation Models
+- MCP
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+common:
+- type: Portal
+  url: https://www.recraft.ai
+- type: Documentation
+  url: https://www.recraft.ai/docs
+- url: https://www.recraft.ai/docs/api-reference/getting-started
+  name: API Getting Started
+  type: GettingStarted
+- url: https://www.recraft.ai/docs/api-reference/endpoints
+  name: API Endpoints
+  type: Documentation
+- url: https://external.api.recraft.ai/doc/
+  name: Swagger UI
+  type: Documentation
+- url: https://www.recraft.ai/docs/llms.txt
+  name: llms.txt
+  type: Documentation
+- url: https://www.recraft.ai/api
+  name: Recraft API Portal
+  type: Portal
+- url: https://www.recraft.ai/projects
+  name: Recraft Studio
+  type: Sandbox
+- url: https://www.recraft.ai/pricing
+  name: Pricing
+  type: Pricing
+- url: https://www.recraft.ai/blog/discover-the-power-of-recrafts-image-generation-api
+  name: Image Generation API
+  type: Blog
+- url: https://www.recraft.ai/blog
+  name: Blog
+  type: Blog
+- url: https://github.com/recraft-ai
+  name: Recraft GitHub Organization
+  type: GitHubOrganization
+- url: https://github.com/recraft-ai/mcp-recraft-server
+  name: MCP Recraft Server
+  type: SDK
+- url: https://github.com/recraft-ai/ComfyUI-RecraftAI
+  name: ComfyUI Recraft Node
+  type: Tool
+- url: https://www.linkedin.com/company/recraft-ai
+  name: LinkedIn
+  type: LinkedIn
+- url: https://discord.gg/recraft
+  name: Recraft Discord
+  type: Forum
+- url: https://feedback.recraft.ai
+  name: Feedback Portal
+  type: Support
+- url: https://www.recraft.ai/docs/support-and-faq/FAQ
+  name: FAQ
+  type: Support
+- url: https://www.recraft.ai/docs/support-and-faq/contact-support
+  name: Contact Support
+  type: Support
+- url: https://www.recraft.ai/docs/trust-and-security/security
+  name: Security
+  type: TrustCenter
+- url: https://www.recraft.ai/docs/trust-and-security/compliance-and-certifications
+  name: Compliance and Certifications
+  type: TrustCenter
+- url: https://www.recraft.ai/docs/trust-and-security/data-protection-and-privacy
+  name: Data Protection and Privacy
+  type: PrivacyPolicy
+- url: https://www.recraft.ai/docs/trust-and-security/data-use-and-model-training
+  name: Data Use and Model Training
+  type: Documentation
+- url: https://www.recraft.ai/docs/trust-and-security/ownership
+  name: Commercial Ownership
+  type: Documentation
+- url: https://www.recraft.ai/docs/plans-and-billing/credits
+  name: Credits
+  type: Documentation
+- url: https://www.recraft.ai/docs/plans-and-billing/paid-plans
+  name: Paid Plans
+  type: Plans
+- url: https://www.recraft.ai/docs/plans-and-billing/free-plan
+  name: Free Plan
+  type: Plans
+- url: https://www.recraft.ai/docs/plans-and-billing/billing
+  name: Billing and Invoices
+  type: Documentation
+- url: https://www.recraft.ai/docs/api-reference/pricing
+  name: API Pricing
+  type: Pricing
+- url: https://www.recraft.ai/docs/api-reference/appendix
+  name: API Appendix
+  type: Documentation
+- url: https://www.recraft.ai/docs/api-reference/styles
+  name: API Styles
+  type: Documentation
+- url: https://www.recraft.ai/docs/recraft-models/recraft-v4-1
+  name: Recraft V4.1
+  type: Models
+- url: https://www.recraft.ai/docs/recraft-models/recraft-V4
+  name: Recraft V4
+  type: Models
+- url: https://www.recraft.ai/docs/recraft-models/recraft-V3
+  name: Recraft V3
+  type: Models
+- url: https://www.recraft.ai/docs/recraft-models/recraft-V2
+  name: Recraft V2
+  type: Models
+- url: https://www.recraft.ai/docs/recraft-models/choosing-a-model
+  name: Choosing a Model
+  type: Documentation
+- url: https://www.recraft.ai/docs/recraft-models/external-models
+  name: External Models
+  type: Documentation
+- url: https://www.recraft.ai/docs/recraft-studio/styles/overview
+  name: Styles Overview
+  type: Documentation
+- url: https://www.recraft.ai/docs/recraft-studio/styles/curated-styles
+  name: Curated Styles
+  type: Documentation
+- url: https://www.recraft.ai/docs/best-practices/prompting-and-image-generation
+  name: Prompting Best Practices
+  type: Documentation
+- url: https://www.recraft.ai/docs/best-practices/character-consistency
+  name: Character Consistency
+  type: Documentation
+- url: https://www.recraft.ai/docs/prompt-engineering-guide/introduction
+  name: Prompt Engineering Guide
+  type: Documentation
+- url: https://www.recraft.ai/auth
+  name: Sign Up
+  type: SignUp
+- url: https://www.recraft.ai/profile/api
+  name: API Token Management
+  type: Documentation
+- url: https://www.recraft.ai/terms
+  name: Terms of Service
+  type: TermsOfService
+- url: https://www.recraft.ai/privacy-policy
+  name: Privacy Policy
+  type: PrivacyPolicy
+- url: https://www.recraft.ai/subprocessors
+  name: Subprocessors
+  type: Documentation
+- url: plans/recraft-ai-plans-pricing.yml
+  type: Plans
+- url: rate-limits/recraft-ai-rate-limits.yml
+  type: RateLimits
+- url: finops/recraft-ai-finops.yml
+  type: FinOps
+- type: Features
+  data:
+  - Recraft V4.1 (May 2026) — flagship raster + vector image model with sharper, more polished output
+  - Pro and Utility variants of V4.1 — higher resolution Pro at 2x standard size, Utility for general-purpose
+  - Recraft V4, V3, V2 — full back-catalog of raster and vector image generation models
+  - External models in Studio — Flux, Ideogram, GPT Image, HiDream, Imagen, Qwen Image, Seedream, Grok, Nano Banana
+  - Vector generation — true SVG output with editable paths and design-ready typography
+  - 100+ curated styles across photorealism, illustration, vector art, logos and icons, seamless patterns
+  - Custom styles — upload up to five reference images to mint a reusable style_id (V3 compatible)
+  - Brand controls — RGB color palettes, background colors, no-text flag, artistic level
+  - Image-to-image, inpainting, outpainting, replace background, generate background, erase region, variate
+  - Vectorize raster to SVG, crisp upscale, creative upscale
+  - Exploration and similar-exploration endpoints for creative discovery
+  - Prompt enhancement endpoint to expand short prompts with visual context
+  - Bearer-token authentication, OpenAI Python SDK compatible request shape
+  - 14 supported aspect ratios per model; V4/V4.1 accept 10,000 character prompts
+  - Per-user limits of 100 images/min and 5 requests/sec, generated assets retained ~24h
+  - Credit-based metering at USD $1.00 = 1,000 API units
+  - Studio surface (recraft.ai/projects) with mockup generator, color palettes, frames, agentic mode, video
+  - Remote MCP server at https://mcp.recraft.ai/mcp (OAuth, billed against subscription credits)
+  - Local MCP server (Node.js, billed against API units) — open source on GitHub
+  - ComfyUI node — integrates Recraft into ComfyUI graphs
+  - SOC 2-audited processes, encryption in transit and at rest, role-based access
+  - London-headquartered, founded 2023 by Anna Veronika Dorogush (creator of CatBoost)
+  - Customers include Asana, HubSpot, Ogilvy, Airbus, Netflix, Microsoft
+  sources:
+  - https://www.recraft.ai
+  - https://www.recraft.ai/api
+  - https://www.recraft.ai/docs/api-reference/endpoints
+  - https://www.recraft.ai/docs/api-reference/getting-started
+  - https://www.recraft.ai/docs/api-reference/pricing
+  - https://www.recraft.ai/docs/api-reference/appendix
+  - https://www.recraft.ai/docs/mcp-reference/getting-started
+  - https://www.recraft.ai/docs/recraft-models/recraft-v4-1
+  - https://github.com/recraft-ai
+  updated: '2026-05-25'
+created: '2026-05-25T00:00:00.000Z'
+modified: '2026-05-25'
+position: Consuming
+description: Recraft is a London-based AI design platform — founded in 2023 by Anna Veronika Dorogush (creator
+  of the CatBoost ML framework) — that builds production-grade image and vector generation models tailored for
+  professional designers and brands. Its Recraft V4.1, V4, V3, and V2 models generate photorealistic raster
+  images, true SVG vector graphics, logos, icons, and seamless patterns with strong control over style,
+  custom brand styles, color palettes, and text placement. The Recraft API exposes prompt-to-image, vector
+  generation, image-to-image, inpainting, outpainting, vectorization, background tooling, upscaling, custom
+  style creation, prompt enhancement, and account inspection over HTTPS with Bearer token authentication and
+  an OpenAI-compatible request shape, complemented by hosted and self-hosted Model Context Protocol servers
+  for use from Claude and other agentic AI clients.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

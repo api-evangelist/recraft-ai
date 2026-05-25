@@ -1,0 +1,35 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://external.api.recraft.ai/v1/images/generations/vector",
+    "headers": {
+      "Authorization": "Bearer $RECRAFT_API_TOKEN",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "prompt": "Minimal line-art logo of a paper aeroplane, single weight stroke, no fill",
+      "model": "recraftv4_1",
+      "style": "vector_illustration",
+      "substyle": "line_art",
+      "size": "1:1",
+      "n": 1,
+      "controls": {
+        "no_text": true
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "created": 1748140801,
+      "credits": 80,
+      "data": [
+        {
+          "image_id": "c3f4e0f6-3456-4cde-9aff-3333333333cc",
+          "url": "https://images.recraft.ai/signed/c3f4e0f6-3456-4cde-9aff-3333333333cc.svg?sig=...",
+          "revised_prompt": "Minimal single-weight line-art paper aeroplane mark."
+        }
+      ]
+    }
+  }
+}

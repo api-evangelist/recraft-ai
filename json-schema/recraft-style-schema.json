@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/recraft-ai/refs/heads/main/json-schema/recraft-style-schema.json",
+  "title": "Recraft Style",
+  "description": "A custom Recraft style created from one to five reference images. Custom styles are compatible with V3 models and can be passed via `style_id` on generation requests.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Style identifier. Use as `style_id` in generation requests."
+    },
+    "base_style": {
+      "type": "string",
+      "description": "Base style group the custom style was registered under (e.g. `digital_illustration`).",
+      "examples": [
+        "realistic_image",
+        "digital_illustration",
+        "vector_illustration",
+        "icon",
+        "logo_raster"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "description": "Recraft model the style is bound to.",
+      "examples": ["recraftv3"]
+    },
+    "credits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "API units charged for style creation (40 units / $0.04 at time of writing)."
+    },
+    "reference_images": {
+      "type": "array",
+      "description": "Reference image identifiers uploaded to mint the style.",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "string"
+      }
+    },
+    "created": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unix epoch timestamp when the style was created."
+    }
+  },
+  "required": ["id", "base_style"]
+}

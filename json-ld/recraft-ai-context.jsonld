@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "recraft": "https://www.recraft.ai/vocab#",
+    "apis": "https://apievangelist.com/vocab#",
+    "Recraft": "schema:Organization",
+    "Image": "recraft:Image",
+    "Style": "recraft:Style",
+    "Model": "recraft:Model",
+    "Prompt": "recraft:Prompt",
+    "BrandControls": "recraft:BrandControls",
+    "User": "schema:Person",
+    "id": "@id",
+    "image_id": {
+      "@id": "schema:identifier",
+      "@type": "@id"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "b64_json": "recraft:base64Content",
+    "revised_prompt": "recraft:revisedPrompt",
+    "prompt": "recraft:prompt",
+    "negative_prompt": "recraft:negativePrompt",
+    "model": "recraft:model",
+    "style": "recraft:style",
+    "substyle": "recraft:substyle",
+    "style_id": {
+      "@id": "recraft:styleId",
+      "@type": "@id"
+    },
+    "size": "recraft:size",
+    "n": "recraft:numImages",
+    "response_format": "recraft:responseFormat",
+    "format": "schema:encodingFormat",
+    "credits": "recraft:credits",
+    "controls": "recraft:brandControls",
+    "colors": "recraft:colors",
+    "background_color": "recraft:backgroundColor",
+    "no_text": "recraft:noText",
+    "artistic_level": "recraft:artisticLevel",
+    "rgb": "recraft:rgb",
+    "text_layout": "recraft:textLayout",
+    "base_style": "recraft:baseStyle",
+    "reference_images": "recraft:referenceImages",
+    "created": "schema:dateCreated",
+    "email": "schema:email"
+  }
+}

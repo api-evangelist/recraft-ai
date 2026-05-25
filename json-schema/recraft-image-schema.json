@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/recraft-ai/refs/heads/main/json-schema/recraft-image-schema.json",
+  "title": "Recraft Image",
+  "description": "A single image artifact returned by the Recraft Images API. Images are stored for approximately 24 hours behind signed URLs.",
+  "type": "object",
+  "properties": {
+    "image_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Stable identifier of the generated image."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Signed URL pointing to the generated raster or SVG asset. Valid for approximately 24 hours."
+    },
+    "b64_json": {
+      "type": "string",
+      "contentEncoding": "base64",
+      "description": "Inline base64-encoded image returned when `response_format=b64_json` was requested."
+    },
+    "revised_prompt": {
+      "type": "string",
+      "description": "Prompt as revised by the model after safety and prompt enhancement passes."
+    },
+    "model": {
+      "type": "string",
+      "description": "Recraft model that produced the image (e.g. `recraftv4_1`, `recraftv4_1_pro`, `recraftv3`)."
+    },
+    "style": {
+      "type": "string",
+      "description": "Style group used during generation (e.g. `realistic_image`, `digital_illustration`, `vector_illustration`)."
+    },
+    "substyle": {
+      "type": "string",
+      "description": "Substyle used during generation (e.g. `pixel_art`, `linocut`, `urban_drama`)."
+    },
+    "style_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Identifier of a custom style created via the `/styles` endpoint."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["png", "webp", "jpg", "svg"],
+      "description": "Container format of the image."
+    },
+    "size": {
+      "type": "string",
+      "description": "Output size or aspect ratio of the image (e.g. `1024x1024`, `16:9`)."
+    },
+    "credits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "API units consumed to produce this image. 1,000 units = USD $1.00."
+    }
+  },
+  "required": ["image_id"]
+}

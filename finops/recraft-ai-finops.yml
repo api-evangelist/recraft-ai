@@ -1,0 +1,121 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Recraft
+providerId: recraft-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - AI
+  - Image Generation
+description: FOCUS-aligned FinOps definition for Recraft's external Images API and Studio subscription. Two distinct
+  consumption surfaces — subscription credits (Studio + remote MCP) and pay-as-you-go API units (external HTTP API +
+  local MCP) — must be reported separately because they cannot be exchanged with each other.
+sources:
+  - https://www.recraft.ai/pricing
+  - https://www.recraft.ai/docs/plans-and-billing/credits
+  - https://www.recraft.ai/docs/plans-and-billing/billing
+  - https://www.recraft.ai/docs/api-reference/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Recraft
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: api_unit
+  secondaryUnits:
+    - credit
+    - image
+    - svg
+  unitDefinitions:
+    api_unit:
+      description: External HTTP API unit. 1,000 units = USD $1.00. Deducted per successful operation.
+      conversion:
+        usdPerUnit: 0.001
+    credit:
+      description: Subscription credit used inside Recraft Studio and the remote MCP server. Does not roll over month
+        to month. Top-up purchases are available.
+chargeClassifications:
+  - chargeCategory: Usage
+    chargeClass: Standard
+    description: Per-operation API-unit deductions on the external Images API.
+  - chargeCategory: Usage
+    chargeClass: Subscription
+    description: Monthly subscription credit allotment consumed inside Recraft Studio and the remote MCP server.
+  - chargeCategory: Purchase
+    chargeClass: TopUp
+    description: One-off API-unit or credit top-up purchases.
+  - chargeCategory: Credit
+    chargeClass: Refund
+    description: Refunds for failed operations are not charged at the operation level (units are deducted only on
+      success), but plan-level promotional credits and adjustments may appear in invoices.
+costAllocation:
+  dimensions:
+    - SubAccountId
+    - ProjectId
+    - ModelId
+    - OperationId
+    - StyleId
+  taggingStrategy:
+    description: API requests can be attributed via the authenticated user/account on the API token. Studio usage is
+      attributed via project and team membership. Custom style identifiers can be used as a soft cost-allocation
+      dimension when teams isolate brand workflows per style.
+metering:
+  granularity: per-operation
+  catalogReference: https://www.recraft.ai/docs/api-reference/pricing
+  examples:
+    - operation: Recraft V4.1 raster image generation
+      endpoint: /v1/images/generations
+      units: 40
+      priceUsd: '0.04'
+    - operation: Recraft V4.1 Pro raster image generation
+      endpoint: /v1/images/generations
+      units: 250
+      priceUsd: '0.25'
+    - operation: Recraft V4.1 vector image generation
+      endpoint: /v1/images/generations/vector
+      units: 80
+      priceUsd: '0.08'
+    - operation: Custom style creation
+      endpoint: /v1/styles
+      units: 40
+      priceUsd: '0.04'
+    - operation: Vectorize
+      endpoint: /v1/images/vectorize
+      units: 10
+      priceUsd: '0.01'
+    - operation: Background remove
+      endpoint: /v1/images/removeBackground
+      units: 10
+      priceUsd: '0.01'
+    - operation: Erase region
+      endpoint: /v1/images/eraseRegion
+      units: 2
+      priceUsd: '0.002'
+reporting:
+  exports:
+    - Invoice (PDF, monthly)
+    - Account credit balance via GET /v1/users/me
+  observability:
+    - The /v1/users/me endpoint returns the remaining API unit balance — suitable for FinOps polling and budget
+      alerts.
+notes:
+  - Failed operations do not consume API units. Only successful 2xx responses are charged.
+  - Subscription credits do not roll over month to month — under-utilisation effectively forfeits remaining credit.
+  - The remote MCP server bills against the connected user's subscription credits, not API units.

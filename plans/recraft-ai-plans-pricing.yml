@@ -1,0 +1,217 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Recraft
+providerId: recraft-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - AI
+  - Image Generation
+  - Vector
+  - Credits
+description: 'Reconciled API plans and per-operation API-unit pricing for Recraft. Source: recraft.ai/docs/api-reference/pricing.
+  USD $1.00 = 1,000 API units. Subscription credits and API units are separate balances; subscription credits
+  are spent in Recraft Studio (and via the remote MCP server), API units are spent against the external HTTP API
+  and local MCP server.'
+sources:
+  - https://www.recraft.ai/pricing
+  - https://www.recraft.ai/docs/plans-and-billing/paid-plans
+  - https://www.recraft.ai/docs/plans-and-billing/free-plan
+  - https://www.recraft.ai/docs/plans-and-billing/credits
+  - https://www.recraft.ai/docs/api-reference/pricing
+plans:
+  - id: recraft-free
+    name: Free
+    type: subscription
+    description: Free Recraft Studio plan. Generated images are owned by Recraft and publicly visible.
+    entries:
+      - label: User
+        name: user
+        type: included
+        limit: 1
+        unit: 1
+        price: '0.00'
+        timeFrame: month
+        geo: global
+    elements:
+      - Recraft Studio access
+      - Public, non-commercial generations
+      - Daily credit allowance
+  - id: recraft-paid-subscription
+    name: Paid (Recraft Studio)
+    type: subscription
+    description: Paid Recraft Studio subscription tiers with private projects, commercial rights, custom styles, and
+      subscription credits. Multiple billing tiers exist (Basic, Advanced, Pro, Business, Teams) with monthly and
+      annual options (annual saves 20%). Subscription credits do not roll over month to month; top-ups available.
+    entries:
+      - label: Monthly subscription credits
+        name: subscription_credits
+        type: included
+        metric: credit
+        unit: 1
+        timeFrame: month
+        geo: global
+    elements:
+      - Private projects
+      - Full commercial ownership
+      - Custom style creation in Studio
+      - Recraft V4.1 / V4 / V3 / V2 access
+      - External model usage (Flux, Ideogram, GPT Image, Imagen, etc.)
+      - Mockup generator and color palettes
+      - Top-up credit purchases
+  - id: recraft-api
+    name: API Units
+    type: usage-based
+    description: Pay-as-you-go API units used against the external HTTP API and the local MCP server. USD $1.00 buys
+      1,000 API units. Charges are per operation, vary by model and output type, and are deducted on successful
+      response. Billed separately from Recraft Studio subscription credits.
+    entries:
+      - label: API unit
+        name: api_unit
+        type: metered
+        metric: api_unit
+        unit: 1000
+        timeFrame: usage
+        price: '1.00'
+        geo: global
+  - id: recraft-enterprise
+    name: Enterprise
+    type: contract
+    description: Custom enterprise contracts for teams operating Recraft at scale. Trusted customers include Asana,
+      HubSpot, Ogilvy, Airbus, Netflix, and Microsoft. Pricing on application.
+    entries:
+      - label: Negotiated
+        name: enterprise
+        type: contract
+        price: 'Call'
+        timeFrame: month
+        geo: global
+operations:
+  - id: image-generation-v4-1-pro
+    name: Recraft V4.1 Pro Raster Image Generation
+    endpoint: /v1/images/generations
+    units: 250
+    priceUsd: '0.25'
+    description: Raster image with Recraft V4.1 Pro, V4.1 Utility Pro, or V4 Pro.
+  - id: image-generation-v4-1
+    name: Recraft V4.1 Raster Image Generation
+    endpoint: /v1/images/generations
+    units: 40
+    priceUsd: '0.04'
+    description: Raster image with Recraft V4.1, V4.1 Utility, V4, or V3.
+  - id: image-generation-v2
+    name: Recraft V2 Raster Image Generation
+    endpoint: /v1/images/generations
+    units: 22
+    priceUsd: '0.022'
+    description: Raster image with Recraft V2.
+  - id: image-generation-v4-1-pro-vector
+    name: Recraft V4.1 Pro Vector Image Generation
+    endpoint: /v1/images/generations/vector
+    units: 300
+    priceUsd: '0.30'
+    description: Vector image with Recraft V4.1 Pro Vector, V4.1 Utility Pro Vector, or V4 Pro Vector.
+  - id: image-generation-v4-1-vector
+    name: Recraft V4.1 Vector Image Generation
+    endpoint: /v1/images/generations/vector
+    units: 80
+    priceUsd: '0.08'
+    description: Vector image with Recraft V4.1 Vector, V4.1 Utility Vector, V4 Vector, or V3 Vector.
+  - id: image-generation-v2-vector
+    name: Recraft V2 Vector Image Generation
+    endpoint: /v1/images/generations/vector
+    units: 44
+    priceUsd: '0.044'
+    description: Vector image with Recraft V2 Vector.
+  - id: image-to-image-raster
+    name: Image To Image (raster)
+    endpoint: /v1/images/imageToImage
+    units: 40
+    priceUsd: '0.04'
+  - id: image-to-image-vector
+    name: Image To Image (vector)
+    endpoint: /v1/images/imageToImage
+    units: 80
+    priceUsd: '0.08'
+  - id: inpaint-raster
+    name: Inpaint (raster)
+    endpoint: /v1/images/inpaint
+    units: 40
+    priceUsd: '0.04'
+  - id: inpaint-vector
+    name: Inpaint (vector)
+    endpoint: /v1/images/inpaint
+    units: 80
+    priceUsd: '0.08'
+  - id: outpaint-raster
+    name: Outpaint (raster)
+    endpoint: /v1/images/outpaint
+    units: 40
+    priceUsd: '0.04'
+  - id: outpaint-vector
+    name: Outpaint (vector)
+    endpoint: /v1/images/outpaint
+    units: 80
+    priceUsd: '0.08'
+  - id: replace-background-raster
+    name: Replace Background (raster)
+    endpoint: /v1/images/replaceBackground
+    units: 40
+    priceUsd: '0.04'
+  - id: replace-background-vector
+    name: Replace Background (vector)
+    endpoint: /v1/images/replaceBackground
+    units: 80
+    priceUsd: '0.08'
+  - id: generate-background-raster
+    name: Generate Background (raster)
+    endpoint: /v1/images/generateBackground
+    units: 40
+    priceUsd: '0.04'
+  - id: generate-background-vector
+    name: Generate Background (vector)
+    endpoint: /v1/images/generateBackground
+    units: 80
+    priceUsd: '0.08'
+  - id: style-create
+    name: Custom Style Creation
+    endpoint: /v1/styles
+    units: 40
+    priceUsd: '0.04'
+  - id: vectorize
+    name: Vectorize
+    endpoint: /v1/images/vectorize
+    units: 10
+    priceUsd: '0.01'
+  - id: remove-background
+    name: Remove Background
+    endpoint: /v1/images/removeBackground
+    units: 10
+    priceUsd: '0.01'
+  - id: crisp-upscale
+    name: Crisp Upscale
+    endpoint: /v1/images/crispUpscale
+    units: 4
+    priceUsd: '0.004'
+  - id: creative-upscale
+    name: Creative Upscale
+    endpoint: /v1/images/creativeUpscale
+    units: 250
+    priceUsd: '0.25'
+  - id: erase-region
+    name: Erase Region
+    endpoint: /v1/images/eraseRegion
+    units: 2
+    priceUsd: '0.002'
+  - id: variate-image
+    name: Variate Image
+    endpoint: /v1/images/variateImage
+    units: 40
+    priceUsd: '0.04'
+  - id: prompt-enhance
+    name: Prompt Enhance
+    endpoint: /v1/prompts/enhance
+    units: 10
+    priceUsd: '0.01'

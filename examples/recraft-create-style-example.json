@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://external.api.recraft.ai/v1/styles",
+    "headers": {
+      "Authorization": "Bearer $RECRAFT_API_TOKEN"
+    },
+    "multipart": {
+      "style": "digital_illustration",
+      "file": [
+        "@brand-illustration-1.png",
+        "@brand-illustration-2.png",
+        "@brand-illustration-3.png"
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "d4a5b1c7-4567-4def-9bff-4444444444dd",
+      "credits": 40
+    }
+  },
+  "followUp": {
+    "description": "Reuse the style on subsequent generations by setting style_id.",
+    "body": {
+      "prompt": "Cover illustration for our quarterly brand report",
+      "model": "recraftv3",
+      "style_id": "d4a5b1c7-4567-4def-9bff-4444444444dd",
+      "size": "16:9"
+    }
+  }
+}

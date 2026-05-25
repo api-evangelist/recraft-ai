@@ -1,0 +1,64 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recraft Images API — Custom Styles
+  description: 'Recraft Images API — custom style creation. 1 operation. Lead operation: Recraft Create Custom Style.
+    Self-contained Naftiko capability covering Recraft''s brand-style business surface.'
+  tags:
+  - Recraft
+  - Styles
+  - Brand
+  - Custom Styles
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RECRAFT_API_TOKEN: RECRAFT_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: styles
+    baseUri: https://external.api.recraft.ai
+    description: Recraft Images API — Styles business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-styles
+      path: /v1/styles
+      operations:
+      - name: createstyle
+        method: POST
+        description: Recraft Create Custom Style From Reference Images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Multipart form body with `style` and up to five reference image files.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.RECRAFT_API_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: styles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Recraft Images API — Styles.
+    tools:
+    - name: recraft-create-style
+      description: Recraft Create Custom Style From Reference Images
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: styles.createstyle
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,205 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recraft Images API — Editing
+  description: 'Recraft Images API — image transformation and editing surfaces including image-to-image, inpaint,
+    outpaint, erase, variate, and explore-similar. 6 operations. Lead operation: Recraft Image To Image. Self-contained
+    Naftiko capability covering Recraft''s editing business surface.'
+  tags:
+  - Recraft
+  - Images
+  - Editing
+  - Inpaint
+  - Outpaint
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RECRAFT_API_TOKEN: RECRAFT_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: images-editing
+    baseUri: https://external.api.recraft.ai
+    description: Recraft Images API — Editing business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-images-imageToImage
+      path: /v1/images/imageToImage
+      operations:
+      - name: imagetoimage
+        method: POST
+        description: Recraft Image To Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-inpaint
+      path: /v1/images/inpaint
+      operations:
+      - name: inpaint
+        method: POST
+        description: Recraft Inpaint Masked Region
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-outpaint
+      path: /v1/images/outpaint
+      operations:
+      - name: outpaint
+        method: POST
+        description: Recraft Outpaint Image Beyond Edges
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-eraseRegion
+      path: /v1/images/eraseRegion
+      operations:
+      - name: eraseregion
+        method: POST
+        description: Recraft Erase Masked Region
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-variateImage
+      path: /v1/images/variateImage
+      operations:
+      - name: variate
+        method: POST
+        description: Recraft Variate Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: v1-images-explore-similar
+      path: /v1/images/explore/similar
+      operations:
+      - name: exploresimilar
+        method: POST
+        description: Recraft Explore Similar Images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.RECRAFT_API_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: images-editing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Recraft Images API — Editing.
+    tools:
+    - name: recraft-image-to-image
+      description: Recraft Image To Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.imagetoimage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-inpaint
+      description: Recraft Inpaint Masked Region
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.inpaint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-outpaint
+      description: Recraft Outpaint Image Beyond Edges
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.outpaint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-erase-region
+      description: Recraft Erase Masked Region
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.eraseregion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-variate-image
+      description: Recraft Variate Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.variate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: recraft-explore-similar
+      description: Recraft Explore Similar Images
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: images-editing.exploresimilar
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

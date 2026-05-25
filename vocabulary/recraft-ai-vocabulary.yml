@@ -1,0 +1,142 @@
+vocabulary: Recraft
+providerId: recraft-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Operational and capability vocabulary covering the Recraft AI image generation platform. Maps the
+  provider's nouns and verbs to the dimensions Naftiko uses to align capabilities across providers.
+operationalDimensions:
+  domain: Generative AI
+  subdomain: Image and Vector Generation
+  modality:
+    - text-to-image
+    - text-to-vector
+    - image-to-image
+    - image-to-vector
+    - prompt-enhancement
+  outputFormats:
+    - PNG
+    - WEBP
+    - JPG
+    - SVG
+  inputFormats:
+    - text/plain
+    - image/png
+    - image/webp
+    - image/jpeg
+    - multipart/form-data
+  authentication:
+    - bearer-token
+    - oauth (remote MCP)
+  metering:
+    - api-units
+    - subscription-credits
+capabilityDimensions:
+  generation:
+    - createImage
+    - createRasterImage
+    - createVectorImage
+    - exploreImages
+  editing:
+    - imageToImage
+    - inpaint
+    - outpaint
+    - eraseRegion
+    - variateImage
+    - exploreSimilar
+  background:
+    - removeBackground
+    - replaceBackground
+    - generateBackground
+  postProcessing:
+    - vectorize
+    - crispUpscale
+    - creativeUpscale
+  promptShaping:
+    - enhancePrompt
+  brand:
+    - createCustomStyle
+    - applyStyle
+    - applySubstyle
+    - applyColorPalette
+    - applyBackgroundColor
+    - controlNoText
+    - controlArtisticLevel
+  account:
+    - getCurrentUser
+    - inspectCreditBalance
+models:
+  - id: recraftv4_1
+    name: Recraft V4.1
+    family: V4
+    release: '2026-05'
+    raster: true
+    vector: true
+    maxPromptLength: 10000
+  - id: recraftv4_1_pro
+    name: Recraft V4.1 Pro
+    family: V4
+    release: '2026-05'
+    raster: true
+    vector: true
+    notes: Double-resolution variant of V4.1.
+  - id: recraftv4_1_utility
+    name: Recraft V4.1 Utility
+    family: V4
+    release: '2026-05'
+  - id: recraftv4_1_utility_pro
+    name: Recraft V4.1 Utility Pro
+    family: V4
+    release: '2026-05'
+  - id: recraftv4
+    name: Recraft V4
+    family: V4
+  - id: recraftv4_pro
+    name: Recraft V4 Pro
+    family: V4
+  - id: recraftv3
+    name: Recraft V3
+    family: V3
+    customStylesSupported: true
+    maxPromptLength: 1000
+  - id: recraftv2
+    name: Recraft V2
+    family: V2
+    maxPromptLength: 1000
+styleGroups:
+  - id: realistic_image
+    name: Realistic Image
+    output: raster
+  - id: digital_illustration
+    name: Digital Illustration
+    output: raster
+  - id: vector_illustration
+    name: Vector Illustration
+    output: vector
+  - id: icon
+    name: Icon
+    output: vector
+  - id: logo_raster
+    name: Logo (Raster)
+    output: raster
+externalModels:
+  - Flux
+  - Ideogram
+  - GPT Image
+  - HiDream
+  - Imagen
+  - Qwen Image
+  - Seedream
+  - Grok Image
+  - Nano Banana
+videoModels:
+  - Grok Video
+  - Veo
+  - Kling
+  - Sora
+notableCustomers:
+  - Asana
+  - HubSpot
+  - Ogilvy
+  - Airbus
+  - Netflix
+  - Microsoft

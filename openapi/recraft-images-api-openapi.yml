@@ -1,0 +1,617 @@
+openapi: 3.0.3
+info:
+  title: Recraft Images API
+  description: |
+    Recraft's external HTTP API for AI image and vector generation, editing,
+    transformation, vectorization, upscaling, background tooling, prompt
+    enhancement, custom style creation, and account/credit inspection. All
+    requests are authenticated with a Bearer API token issued from your
+    Recraft profile.
+  version: '2026-05-22'
+  contact:
+    name: Recraft
+    url: https://www.recraft.ai
+servers:
+  - url: https://external.api.recraft.ai/v1
+    description: Production
+security:
+  - bearerAuth: []
+paths:
+  /images/generations:
+    post:
+      operationId: createImage
+      summary: Create Image From Prompt
+      description: |
+        Generate one or more images from a text prompt. Supports both raster
+        and vector output across all Recraft model versions (V2, V3, V4, V4.1)
+        and OpenAI-style request shape. Optionally accepts a `style`, `substyle`,
+        `style_id` (for custom styles), `size`, and `controls` block with brand
+        controls such as colors and background color.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerationRequest'
+      responses:
+        '200':
+          description: Image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/generations/raster:
+    post:
+      operationId: createRasterImage
+      summary: Create Raster Image
+      description: Generate raster-only images (PNG/WEBP/JPG). Restricts model selection to raster variants.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerationRequest'
+      responses:
+        '200':
+          description: Raster image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/generations/vector:
+    post:
+      operationId: createVectorImage
+      summary: Create Vector Image
+      description: Generate vector-only SVG images. Restricts model selection to vector variants.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerationRequest'
+      responses:
+        '200':
+          description: Vector image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/imageToImage:
+    post:
+      operationId: imageToImage
+      summary: Transform Image To Image
+      description: Generate a variation of an input image preserving composition while applying a new prompt or style.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageToImageRequest'
+      responses:
+        '200':
+          description: Transformed image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/inpaint:
+    post:
+      operationId: inpaintImage
+      summary: Inpaint Masked Region
+      description: Replace masked regions of an input image with content matching a prompt.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MaskedEditRequest'
+      responses:
+        '200':
+          description: Inpainted image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/outpaint:
+    post:
+      operationId: outpaintImage
+      summary: Outpaint Image Beyond Edges
+      description: Extend an image beyond its original boundaries using AI-generated content.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/OutpaintRequest'
+      responses:
+        '200':
+          description: Outpainted image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/replaceBackground:
+    post:
+      operationId: replaceBackground
+      summary: Replace Background
+      description: Replace the detected background of an input image while preserving the subject.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BackgroundRequest'
+      responses:
+        '200':
+          description: Image set with replaced background
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/generateBackground:
+    post:
+      operationId: generateBackground
+      summary: Generate Background Behind Subject
+      description: Fill the masked background region with prompt-controlled generated content.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MaskedEditRequest'
+      responses:
+        '200':
+          description: Image set with generated background
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/vectorize:
+    post:
+      operationId: vectorizeImage
+      summary: Vectorize Raster Image
+      description: Convert a raster image to SVG vector format.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Vector image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/removeBackground:
+    post:
+      operationId: removeBackground
+      summary: Remove Image Background
+      description: Strip the background from an input image and return a transparent PNG.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Image set with background removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/crispUpscale:
+    post:
+      operationId: crispUpscale
+      summary: Crisp Upscale Image
+      description: Upscale an image with emphasis on sharpness and edge clarity.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Upscaled image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/creativeUpscale:
+    post:
+      operationId: creativeUpscale
+      summary: Creative Upscale Image
+      description: Upscale an image with emphasis on adding creative detail to faces and objects.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Upscaled image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/eraseRegion:
+    post:
+      operationId: eraseRegion
+      summary: Erase Masked Region
+      description: Remove the masked region from an image cleanly (object removal).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MaskedEditRequest'
+      responses:
+        '200':
+          description: Image set with region erased
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/variateImage:
+    post:
+      operationId: variateImage
+      summary: Variate Image
+      description: Produce visual remixes of an input image preserving its overall feel.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Image variations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/explore:
+    post:
+      operationId: exploreImages
+      summary: Explore Diverse Variations
+      description: Generate a wide range of visual variations from a prompt to support creative discovery.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerationRequest'
+      responses:
+        '200':
+          description: Image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /images/explore/similar:
+    post:
+      operationId: exploreSimilarImages
+      summary: Explore Similar Images
+      description: Generate images that resemble a source image while exploring stylistic neighbours.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileOnlyRequest'
+      responses:
+        '200':
+          description: Image set
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSet'
+  /prompts/enhance:
+    post:
+      operationId: enhancePrompt
+      summary: Enhance Prompt
+      description: Expand a short user prompt with rich visual context to improve generation quality.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [prompt]
+              properties:
+                prompt:
+                  type: string
+                  description: Original prompt to enhance.
+                model:
+                  type: string
+                  description: Optional target model the enhanced prompt will be used with.
+      responses:
+        '200':
+          description: Enhanced prompt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt:
+                    type: string
+  /styles:
+    post:
+      operationId: createStyle
+      summary: Create Custom Style From Reference Images
+      description: Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateStyleRequest'
+      responses:
+        '200':
+          description: Style reference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Style'
+  /users/me:
+    get:
+      operationId: getCurrentUser
+      summary: Get Current User And Credit Balance
+      description: Retrieve the authenticated user's profile, plan, and remaining API unit balance.
+      responses:
+        '200':
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Recraft API token issued from the Recraft profile. Sent as `Authorization`.
+  schemas:
+    GenerationRequest:
+      type: object
+      required: [prompt]
+      properties:
+        prompt:
+          type: string
+          maxLength: 10000
+          description: Text prompt describing the desired image (up to 10,000 chars for V4/V4.1; 1,000 for V2/V3).
+        model:
+          type: string
+          enum:
+            - recraftv4_1
+            - recraftv4_1_pro
+            - recraftv4_1_utility
+            - recraftv4_1_utility_pro
+            - recraftv4
+            - recraftv4_pro
+            - recraftv3
+            - recraftv2
+          default: recraftv4_1
+          description: Recraft model identifier.
+        style:
+          type: string
+          description: Style group such as `realistic_image`, `digital_illustration`, `vector_illustration`, or `logo_raster`.
+        substyle:
+          type: string
+          description: Optional specific substyle within the selected style (e.g. `pixel_art`, `linocut`, `urban_drama`).
+        style_id:
+          type: string
+          format: uuid
+          description: Identifier of a custom style created via `/styles`.
+        size:
+          type: string
+          description: Output size; either an aspect ratio (e.g. `1024x1024`) or one of 14 supported ratios (1:1, 2:1, 1:2, 3:2, 2:3, 4:3, 3:4, 5:4, 4:5, 6:10, 14:10, 10:14, 16:9, 9:16).
+        n:
+          type: integer
+          minimum: 1
+          maximum: 6
+          default: 1
+        response_format:
+          type: string
+          enum: [url, b64_json]
+          default: url
+        negative_prompt:
+          type: string
+        controls:
+          $ref: '#/components/schemas/BrandControls'
+        text_layout:
+          type: array
+          description: Optional positional control for text on an image.
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              bbox:
+                type: array
+                items:
+                  type: number
+    BrandControls:
+      type: object
+      description: Brand-level controls applied during generation.
+      properties:
+        colors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Color'
+        background_color:
+          $ref: '#/components/schemas/Color'
+        no_text:
+          type: boolean
+        artistic_level:
+          type: integer
+          minimum: 0
+          maximum: 5
+    Color:
+      type: object
+      required: [rgb]
+      properties:
+        rgb:
+          type: array
+          minItems: 3
+          maxItems: 3
+          items:
+            type: integer
+            minimum: 0
+            maximum: 255
+        std:
+          type: number
+          minimum: 0
+          maximum: 1
+    ImageToImageRequest:
+      type: object
+      required: [image, prompt]
+      properties:
+        image:
+          type: string
+          format: binary
+        prompt:
+          type: string
+        strength:
+          type: number
+          minimum: 0
+          maximum: 1
+          default: 0.5
+        model:
+          type: string
+        style:
+          type: string
+        substyle:
+          type: string
+        style_id:
+          type: string
+          format: uuid
+        n:
+          type: integer
+        response_format:
+          type: string
+          enum: [url, b64_json]
+        negative_prompt:
+          type: string
+    MaskedEditRequest:
+      allOf:
+        - $ref: '#/components/schemas/ImageToImageRequest'
+        - type: object
+          required: [mask]
+          properties:
+            mask:
+              type: string
+              format: binary
+              description: Binary mask image. White pixels mark the region to edit.
+    OutpaintRequest:
+      type: object
+      required: [image]
+      properties:
+        image:
+          type: string
+          format: binary
+        prompt:
+          type: string
+        outpaint_top:
+          type: integer
+        outpaint_bottom:
+          type: integer
+        outpaint_left:
+          type: integer
+        outpaint_right:
+          type: integer
+        model:
+          type: string
+        style:
+          type: string
+    BackgroundRequest:
+      type: object
+      required: [image]
+      properties:
+        image:
+          type: string
+          format: binary
+        prompt:
+          type: string
+        model:
+          type: string
+        style:
+          type: string
+        n:
+          type: integer
+        response_format:
+          type: string
+          enum: [url, b64_json]
+    FileOnlyRequest:
+      type: object
+      required: [image]
+      properties:
+        image:
+          type: string
+          format: binary
+        response_format:
+          type: string
+          enum: [url, b64_json]
+    CreateStyleRequest:
+      type: object
+      required: [style, file]
+      properties:
+        style:
+          type: string
+          description: Base style group (e.g. `digital_illustration`).
+        file:
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            type: string
+            format: binary
+    Style:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        credits:
+          type: integer
+    ImageSet:
+      type: object
+      properties:
+        created:
+          type: integer
+          format: int64
+        credits:
+          type: integer
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+    Image:
+      type: object
+      properties:
+        image_id:
+          type: string
+          format: uuid
+        url:
+          type: string
+          format: uri
+          description: Signed URL valid for approximately 24 hours.
+        b64_json:
+          type: string
+        revised_prompt:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        credits:
+          type: integer
+          description: Remaining API unit balance (1,000 units = USD $1.00).

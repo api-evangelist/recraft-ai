@@ -1,0 +1,73 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Recraft Images API — Account
+  description: 'Recraft Images API — account inspection. 1 operation. Lead operation: Recraft Get Current User. Self-contained
+    Naftiko capability covering Recraft''s account/credit-balance business surface.'
+  tags:
+  - Recraft
+  - Account
+  - User
+  - Credits
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RECRAFT_API_TOKEN: RECRAFT_API_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: users
+    baseUri: https://external.api.recraft.ai
+    description: Recraft Images API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-users-me
+      path: /v1/users/me
+      operations:
+      - name: getme
+        method: GET
+        description: Recraft Get Current User And Credit Balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.RECRAFT_API_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: users-rest
+    port: 8080
+    description: REST adapter for Recraft Images API — Users.
+    resources:
+    - path: /v1/users/me
+      name: v1-users-me
+      description: REST surface for /v1/users/me.
+      operations:
+      - method: GET
+        name: getme
+        description: Recraft Get Current User
+        call: users.getme
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Recraft Images API — Users.
+    tools:
+    - name: recraft-get-current-user
+      description: Recraft Get Current User And Credit Balance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: users.getme
+      outputParameters:
+      - type: object
+        mapping: $.

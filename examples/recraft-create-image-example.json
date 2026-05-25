@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://external.api.recraft.ai/v1/images/generations",
+    "headers": {
+      "Authorization": "Bearer $RECRAFT_API_TOKEN",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "prompt": "A friendly cartoon fox standing on a green hill, soft morning light, flat illustration",
+      "model": "recraftv4_1",
+      "style": "digital_illustration",
+      "substyle": "young_adult_book_3",
+      "size": "1024x1024",
+      "n": 2,
+      "response_format": "url",
+      "controls": {
+        "colors": [
+          { "rgb": [255, 142, 60] },
+          { "rgb": [80, 180, 110] }
+        ],
+        "no_text": true,
+        "artistic_level": 3
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "created": 1748140800,
+      "credits": 80,
+      "data": [
+        {
+          "image_id": "a1f2c8d4-1234-4abc-9def-1111111111aa",
+          "url": "https://images.recraft.ai/signed/a1f2c8d4-1234-4abc-9def-1111111111aa.png?sig=...",
+          "revised_prompt": "Friendly cartoon fox on a green hill at golden hour, flat young-adult-book illustration."
+        },
+        {
+          "image_id": "b2e3d9e5-2345-4bcd-8aef-2222222222bb",
+          "url": "https://images.recraft.ai/signed/b2e3d9e5-2345-4bcd-8aef-2222222222bb.png?sig=...",
+          "revised_prompt": "Friendly cartoon fox on a green hill, soft morning light."
+        }
+      ]
+    }
+  }
+}
