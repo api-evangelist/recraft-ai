@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recraft Images API",
+    "version": "2026-05-22"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Create Image From Prompt",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/generations",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Generate one or more images from a text prompt. Supports both raster\nand vector output across all Recraft model versions (V2, V3, V4, V4.1)\nand OpenAI-style request shape. Optionally accepts a `style`, `substyle`,\n`style_id` (for custom styles), `size`, and `controls` block with brand\ncontrols such as colors and background color.\n"
+    },
+    {
+      "info": {
+        "name": "Create Raster Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/generations/raster",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Generate raster-only images (PNG/WEBP/JPG). Restricts model selection to raster variants."
+    },
+    {
+      "info": {
+        "name": "Create Vector Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/generations/vector",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Generate vector-only SVG images. Restricts model selection to vector variants."
+    },
+    {
+      "info": {
+        "name": "Transform Image To Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/imageToImage",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate a variation of an input image preserving composition while applying a new prompt or style."
+    },
+    {
+      "info": {
+        "name": "Inpaint Masked Region",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/inpaint",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Replace masked regions of an input image with content matching a prompt."
+    },
+    {
+      "info": {
+        "name": "Outpaint Image Beyond Edges",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/outpaint",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Extend an image beyond its original boundaries using AI-generated content."
+    },
+    {
+      "info": {
+        "name": "Replace Background",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/replaceBackground",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Replace the detected background of an input image while preserving the subject."
+    },
+    {
+      "info": {
+        "name": "Generate Background Behind Subject",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/generateBackground",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Fill the masked background region with prompt-controlled generated content."
+    },
+    {
+      "info": {
+        "name": "Vectorize Raster Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/vectorize",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Convert a raster image to SVG vector format."
+    },
+    {
+      "info": {
+        "name": "Remove Image Background",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/removeBackground",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Strip the background from an input image and return a transparent PNG."
+    },
+    {
+      "info": {
+        "name": "Crisp Upscale Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/crispUpscale",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Upscale an image with emphasis on sharpness and edge clarity."
+    },
+    {
+      "info": {
+        "name": "Creative Upscale Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/creativeUpscale",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Upscale an image with emphasis on adding creative detail to faces and objects."
+    },
+    {
+      "info": {
+        "name": "Erase Masked Region",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/eraseRegion",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Remove the masked region from an image cleanly (object removal)."
+    },
+    {
+      "info": {
+        "name": "Variate Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/variateImage",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Produce visual remixes of an input image preserving its overall feel."
+    },
+    {
+      "info": {
+        "name": "Explore Diverse Variations",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/explore",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Generate a wide range of visual variations from a prompt to support creative discovery."
+    },
+    {
+      "info": {
+        "name": "Explore Similar Images",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/images/explore/similar",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate images that resemble a source image while exploring stylistic neighbours."
+    },
+    {
+      "info": {
+        "name": "Enhance Prompt",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/prompts/enhance",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Expand a short user prompt with rich visual context to improve generation quality."
+    },
+    {
+      "info": {
+        "name": "Create Custom Style From Reference Images",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://external.api.recraft.ai/v1/styles",
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls."
+    },
+    {
+      "info": {
+        "name": "Get Current User And Credit Balance",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://external.api.recraft.ai/v1/users/me"
+      },
+      "docs": "Retrieve the authenticated user's profile, plan, and remaining API unit balance."
+    }
+  ],
+  "bundled": true
+}

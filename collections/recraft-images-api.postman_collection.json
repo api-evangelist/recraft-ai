@@ -1,0 +1,2889 @@
+{
+  "item": [
+    {
+      "id": "ec771e5d-59ef-4fa1-a60a-0d37a4190c37",
+      "name": "Create Image From Prompt",
+      "request": {
+        "name": "Create Image From Prompt",
+        "description": {
+          "content": "Generate one or more images from a text prompt. Supports both raster\nand vector output across all Recraft model versions (V2, V3, V4, V4.1)\nand OpenAI-style request shape. Optionally accepts a `style`, `substyle`,\n`style_id` (for custom styles), `size`, and `controls` block with brand\ncontrols such as colors and background color.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "generations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "34fbd11a-c2f8-4f0d-a4d9-22269759c391",
+          "name": "Image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "generations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 4089,\n  \"credits\": 2940,\n  \"data\": [\n    {\n      \"image_id\": \"5f6a647b-54bc-9d0f-6916-1fa08c7d6b1d\",\n      \"url\": \"http://JsHuXMriM.nfyL\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"9b89d5d0-10ee-67af-156a-82a8d71381af\",\n      \"url\": \"http://mSHnGrNmszUmWBpHofIXKPPeBOe.bhfpMvSrpUCQD5\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a6ab5cf3-7174-4c68-b13e-d740877a8027",
+      "name": "Create Raster Image",
+      "request": {
+        "name": "Create Raster Image",
+        "description": {
+          "content": "Generate raster-only images (PNG/WEBP/JPG). Restricts model selection to raster variants.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "generations",
+            "raster"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "9ce9755c-d4b4-40ae-bd75-ffa2da459b57",
+          "name": "Raster image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "generations",
+                "raster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "db490823-0552-4f49-9e40-54fee6e7b0a0",
+      "name": "Create Vector Image",
+      "request": {
+        "name": "Create Vector Image",
+        "description": {
+          "content": "Generate vector-only SVG images. Restricts model selection to vector variants.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "generations",
+            "vector"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "18680766-8763-48df-8678-adffaea06264",
+          "name": "Vector image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "generations",
+                "vector"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "160b3b91-cba3-41c2-90a9-fc3df8f000de",
+      "name": "Transform Image To Image",
+      "request": {
+        "name": "Transform Image To Image",
+        "description": {
+          "content": "Generate a variation of an input image preserving composition while applying a new prompt or style.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "imageToImage"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "description": "(Required) "
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "strength",
+              "value": "0.5",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "substyle",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "style_id",
+              "value": "<uuid>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "n",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            },
+            {
+              "key": "negative_prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "e256e041-47ef-49de-8185-65e69e7d5c03",
+          "name": "Transformed image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "imageToImage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "strength",
+                  "value": "0.5",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "substyle",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "style_id",
+                  "value": "<uuid>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "n",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "negative_prompt",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f13b14b0-1900-4b89-adc6-5dae4f45e9d2",
+      "name": "Inpaint Masked Region",
+      "request": {
+        "name": "Inpaint Masked Region",
+        "description": {
+          "content": "Replace masked regions of an input image with content matching a prompt.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "inpaint"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "mask",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "strength",
+              "value": "0.5",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "substyle",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style_id",
+              "value": "<uuid>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "n",
+              "value": "<integer>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "negative_prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "5d89c285-b5bc-4cf4-b5fc-47901498f29f",
+          "name": "Inpainted image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "inpaint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "mask",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "strength",
+                  "value": "0.5",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "substyle",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style_id",
+                  "value": "<uuid>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "n",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "negative_prompt",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e3b9b21e-a8d6-406e-8322-4a808566e9dd",
+      "name": "Outpaint Image Beyond Edges",
+      "request": {
+        "name": "Outpaint Image Beyond Edges",
+        "description": {
+          "content": "Extend an image beyond its original boundaries using AI-generated content.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "outpaint"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "description": "(Required) "
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "outpaint_top",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "outpaint_bottom",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "outpaint_left",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "outpaint_right",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "6eb8f040-565c-4601-ac61-ab81040dfc1b",
+          "name": "Outpainted image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "outpaint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "outpaint_top",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "outpaint_bottom",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "outpaint_left",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "outpaint_right",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "02eb42f7-8e70-4775-a68c-729115cbd944",
+      "name": "Replace Background",
+      "request": {
+        "name": "Replace Background",
+        "description": {
+          "content": "Replace the detected background of an input image while preserving the subject.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "replaceBackground"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "description": "(Required) "
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "n",
+              "value": "<integer>",
+              "type": "text",
+              "description": ""
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "1dd318e7-01b7-4f2f-b50e-27cb4d1bc0da",
+          "name": "Image set with replaced background",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "replaceBackground"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "n",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "14c44935-e812-4851-a8ba-16f567eca61a",
+      "name": "Generate Background Behind Subject",
+      "request": {
+        "name": "Generate Background Behind Subject",
+        "description": {
+          "content": "Fill the masked background region with prompt-controlled generated content.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "generateBackground"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "mask",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "strength",
+              "value": "0.5",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "substyle",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style_id",
+              "value": "<uuid>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "n",
+              "value": "<integer>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "negative_prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "24b19de0-04a1-476a-896f-dcc8224666ac",
+          "name": "Image set with generated background",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "generateBackground"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "mask",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "strength",
+                  "value": "0.5",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "substyle",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style_id",
+                  "value": "<uuid>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "n",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "negative_prompt",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d375adba-6a1e-4fbe-bd1f-51404d0acbde",
+      "name": "Vectorize Raster Image",
+      "request": {
+        "name": "Vectorize Raster Image",
+        "description": {
+          "content": "Convert a raster image to SVG vector format.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "vectorize"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "3764fd80-cfa0-4591-acf4-20fdbb51110a",
+          "name": "Vector image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "vectorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "be0f56a8-d061-42f0-b3dc-b68659b29b93",
+      "name": "Remove Image Background",
+      "request": {
+        "name": "Remove Image Background",
+        "description": {
+          "content": "Strip the background from an input image and return a transparent PNG.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "removeBackground"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "cc4bb4d2-505f-4c80-9e4c-104406474bfe",
+          "name": "Image set with background removed",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "removeBackground"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f823ee2b-f413-4c01-9025-ddab1c7e5023",
+      "name": "Crisp Upscale Image",
+      "request": {
+        "name": "Crisp Upscale Image",
+        "description": {
+          "content": "Upscale an image with emphasis on sharpness and edge clarity.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "crispUpscale"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "24958a69-70ba-43ec-a7e7-1997880262a5",
+          "name": "Upscaled image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "crispUpscale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8986793e-11cc-43e7-91ea-f23586f42bab",
+      "name": "Creative Upscale Image",
+      "request": {
+        "name": "Creative Upscale Image",
+        "description": {
+          "content": "Upscale an image with emphasis on adding creative detail to faces and objects.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "creativeUpscale"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8334797f-1e56-4e06-a7d4-d3549ac208b9",
+          "name": "Upscaled image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "creativeUpscale"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "138bd43c-ced7-4a4a-a62a-f743f25dd731",
+      "name": "Erase Masked Region",
+      "request": {
+        "name": "Erase Masked Region",
+        "description": {
+          "content": "Remove the masked region from an image cleanly (object removal).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "eraseRegion"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "mask",
+              "value": "<binary>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "strength",
+              "value": "0.5",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "model",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "substyle",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "style_id",
+              "value": "<uuid>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "n",
+              "value": "<integer>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            },
+            {
+              "key": "negative_prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "undefined"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "3fc21393-b176-4fff-a5b9-fdb24c0eaf6b",
+          "name": "Image set with region erased",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "eraseRegion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "mask",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "strength",
+                  "value": "0.5",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "model",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "substyle",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "style_id",
+                  "value": "<uuid>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "n",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "undefined",
+                    "type": "text/plain"
+                  },
+                  "key": "negative_prompt",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ae7014b3-7cca-4f32-8e76-35ce6aedf9f3",
+      "name": "Variate Image",
+      "request": {
+        "name": "Variate Image",
+        "description": {
+          "content": "Produce visual remixes of an input image preserving its overall feel.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "variateImage"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "99250201-ce84-4472-b69f-57b5b150e980",
+          "name": "Image variations",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "variateImage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "58442978-1475-4420-bd3d-9bc52579ba5c",
+      "name": "Explore Diverse Variations",
+      "request": {
+        "name": "Explore Diverse Variations",
+        "description": {
+          "content": "Generate a wide range of visual variations from a prompt to support creative discovery.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "explore"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "3611f151-191e-44bd-8024-de11301064a3",
+          "name": "Image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "explore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "eee5461d-f2dd-4fe3-99bb-86dbc4d1d9b9",
+      "name": "Explore Similar Images",
+      "request": {
+        "name": "Explore Similar Images",
+        "description": {
+          "content": "Generate images that resemble a source image while exploring stylistic neighbours.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "images",
+            "explore",
+            "similar"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "(Required) "
+            },
+            {
+              "key": "response_format",
+              "value": "<string>",
+              "type": "text",
+              "description": " (This can only be one of url,b64_json)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "bce23c7f-a568-4556-ac2b-d6e582bb345d",
+          "name": "Image set",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                "explore",
+                "similar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": " (This can only be one of url,b64_json)",
+                    "type": "text/plain"
+                  },
+                  "key": "response_format",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"created\": 7054,\n  \"credits\": 8143,\n  \"data\": [\n    {\n      \"image_id\": \"57bb37e2-968c-3f0d-e290-3d5bfcbb0ae0\",\n      \"url\": \"http://whqSZXwOFBWNzyiuvUrqubvaXNyGLIMk.wvuoF,tUQ+OE5lEoA42wzULz9q0Hdv9h68xxDznZFfaa7gyP1shIpF\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    },\n    {\n      \"image_id\": \"a7db1680-0ff9-3dfe-075c-6676bb4cc6c2\",\n      \"url\": \"http://stPprthScGEmSB.syjJ0IXvHUjrX\",\n      \"b64_json\": \"string\",\n      \"revised_prompt\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8cc5a2c2-fd15-4ab8-a294-2107da06fa27",
+      "name": "Enhance Prompt",
+      "request": {
+        "name": "Enhance Prompt",
+        "description": {
+          "content": "Expand a short user prompt with rich visual context to improve generation quality.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "prompts",
+            "enhance"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ceee3d18-ba49-4a7c-a10b-52cc816721a3",
+          "name": "Enhanced prompt",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "prompts",
+                "enhance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"prompt\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f00d992e-1010-47bf-a8ba-f20e9aae3db3",
+      "name": "Create Custom Style From Reference Images",
+      "request": {
+        "name": "Create Custom Style From Reference Images",
+        "description": {
+          "content": "Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "styles"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "style",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) Base style group (e.g. `digital_illustration`)."
+            },
+            {
+              "key": "file",
+              "value": "[\"<binary>\"]",
+              "type": "text",
+              "description": "(Required) "
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "d46f8035-f85d-4f31-926e-3002223cfe7b",
+          "name": "Style reference",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "styles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Base style group (e.g. `digital_illustration`).",
+                    "type": "text/plain"
+                  },
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "file",
+                  "value": "[\"<binary>\"]",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"d2d32c3d-49c2-d97d-6040-2c780f99600f\",\n  \"credits\": 4489\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "622201c1-2aa2-4217-9801-72617b34a7d6",
+      "name": "Get Current User And Credit Balance",
+      "request": {
+        "name": "Get Current User And Credit Balance",
+        "description": {
+          "content": "Retrieve the authenticated user's profile, plan, and remaining API unit balance.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            "me"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d85a3921-3c6a-47e5-8ae3-5af424717a4b",
+          "name": "Current user",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"email\": \"W7vMhht-KEJqU@gAyxnoLgIvHWBdOSxBDsDyU.xf\",\n  \"credits\": 9388\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://external.api.recraft.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c764a8e-5bef-43dd-92c5-4926c1bfd9f1",
+    "name": "Recraft Images API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Recraft's external HTTP API for AI image and vector generation, editing,\ntransformation, vectorization, upscaling, background tooling, prompt\nenhancement, custom style creation, and account/credit inspection. All\nrequests are authenticated with a Bearer API token issued from your\nRecraft profile.\n\n\nContact Support:\n Name: Recraft",
+      "type": "text/plain"
+    }
+  }
+}
