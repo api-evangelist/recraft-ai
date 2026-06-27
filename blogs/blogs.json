@@ -2,20 +2,13 @@
   "repo": "recraft-ai",
   "feeds": [
     {
-      "source": "https://www.recraft.ai/blog/discover-the-power-of-recrafts-image-generation-api",
-      "feed_url": "https://www.recraft.ai/blog/discover-the-power-of-recrafts-image-generation-api",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
       "source": "https://www.recraft.ai/blog",
-      "feed_url": "https://www.recraft.ai/blog",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "feed_url": "",
+      "saved": 2,
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 27,
+  "fetched": "2026-06-27T13:03:58Z",
+  "agent_pulled": "2026-06-27"
 }

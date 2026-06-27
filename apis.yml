@@ -111,16 +111,16 @@ common:
     type: GitHubOrganization
   - url: https://github.com/recraft-ai/mcp-recraft-server
     name: MCP Recraft Server
-    type: SDK
+    type: SDKs
   - url: https://github.com/recraft-ai/ComfyUI-RecraftAI
     name: ComfyUI Recraft Node
-    type: Tool
+    type: Tools
   - url: https://www.linkedin.com/company/recraft-ai
     name: LinkedIn
     type: LinkedIn
   - url: https://discord.gg/recraft
     name: Recraft Discord
-    type: Forum
+    type: Forums
   - url: https://feedback.recraft.ai
     name: Feedback Portal
     type: Support
@@ -201,7 +201,7 @@ common:
     type: Documentation
   - url: https://www.recraft.ai/auth
     name: Sign Up
-    type: SignUp
+    type: Signup
   - url: https://www.recraft.ai/profile/api
     name: API Token Management
     type: Documentation
