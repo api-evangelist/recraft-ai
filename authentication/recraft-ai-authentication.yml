@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/recraft-images-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Recraft API token issued from the Recraft profile. Sent as `Authorization`.
+  sources:
+  - openapi/recraft-images-api-openapi.yml
