@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Recraft Images Styles API
+  description: 'Recraft''s external HTTP API for AI image and vector generation, editing,
+
+    transformation, vectorization, upscaling, background tooling, prompt
+
+    enhancement, custom style creation, and account/credit inspection. All
+
+    requests are authenticated with a Bearer API token issued from your
+
+    Recraft profile.
+
+    '
+  version: '2026-05-22'
+  contact:
+    name: Recraft
+    url: https://www.recraft.ai
+servers:
+- url: https://external.api.recraft.ai/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Styles
+paths:
+  /styles:
+    post:
+      operationId: createStyle
+      summary: Create Custom Style From Reference Images
+      description: Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CreateStyleRequest'
+      responses:
+        '200':
+          description: Style reference
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Style'
+      tags:
+      - Styles
+components:
+  schemas:
+    Style:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        credits:
+          type: integer
+    CreateStyleRequest:
+      type: object
+      required:
+      - style
+      - file
+      properties:
+        style:
+          type: string
+          description: Base style group (e.g. `digital_illustration`).
+        file:
+          type: array
+          minItems: 1
+          maxItems: 5
+          items:
+            type: string
+            format: binary
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Recraft API token issued from the Recraft profile. Sent as `Authorization`.

@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: Recraft Images Users API
+  description: 'Recraft''s external HTTP API for AI image and vector generation, editing,
+
+    transformation, vectorization, upscaling, background tooling, prompt
+
+    enhancement, custom style creation, and account/credit inspection. All
+
+    requests are authenticated with a Bearer API token issued from your
+
+    Recraft profile.
+
+    '
+  version: '2026-05-22'
+  contact:
+    name: Recraft
+    url: https://www.recraft.ai
+servers:
+- url: https://external.api.recraft.ai/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Users
+paths:
+  /users/me:
+    get:
+      operationId: getCurrentUser
+      summary: Get Current User And Credit Balance
+      description: Retrieve the authenticated user's profile, plan, and remaining API unit balance.
+      responses:
+        '200':
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+      - Users
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        credits:
+          type: integer
+          description: Remaining API unit balance (1,000 units = USD $1.00).
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Recraft API token issued from the Recraft profile. Sent as `Authorization`.

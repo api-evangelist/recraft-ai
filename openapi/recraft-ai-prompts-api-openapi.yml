@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Recraft Images Prompts API
+  description: 'Recraft''s external HTTP API for AI image and vector generation, editing,
+
+    transformation, vectorization, upscaling, background tooling, prompt
+
+    enhancement, custom style creation, and account/credit inspection. All
+
+    requests are authenticated with a Bearer API token issued from your
+
+    Recraft profile.
+
+    '
+  version: '2026-05-22'
+  contact:
+    name: Recraft
+    url: https://www.recraft.ai
+servers:
+- url: https://external.api.recraft.ai/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Prompts
+paths:
+  /prompts/enhance:
+    post:
+      operationId: enhancePrompt
+      summary: Enhance Prompt
+      description: Expand a short user prompt with rich visual context to improve generation quality.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - prompt
+              properties:
+                prompt:
+                  type: string
+                  description: Original prompt to enhance.
+                model:
+                  type: string
+                  description: Optional target model the enhanced prompt will be used with.
+      responses:
+        '200':
+          description: Enhanced prompt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prompt:
+                    type: string
+      tags:
+      - Prompts
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Recraft API token issued from the Recraft profile. Sent as `Authorization`.
