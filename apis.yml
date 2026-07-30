@@ -1,65 +1,120 @@
 aid: recraft-ai
 url: https://raw.githubusercontent.com/api-evangelist/recraft-ai/refs/heads/main/apis.yml
 apis:
-  - aid: recraft-ai:recraft-images-api
-    name: Recraft Images API
-    tags:
-      - AI
-      - Artificial Intelligence
-      - Image Generation
-      - Vector Graphics
-      - Generative AI
-      - Brand Design
-    humanURL: https://www.recraft.ai/docs/api-reference/endpoints
-    baseURL: https://external.api.recraft.ai/v1
-    properties:
-      - url: https://www.recraft.ai/docs/api-reference/getting-started
-        type: Documentation
-      - url: https://www.recraft.ai/docs/api-reference/endpoints
-        type: Documentation
-      - url: https://external.api.recraft.ai/doc/
-        name: Swagger UI
-        type: Documentation
-      - url: openapi/recraft-images-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/recraft-image-schema.json
-        type: JSONSchema
-      - url: json-schema/recraft-style-schema.json
-        type: JSONSchema
-      - url: json-ld/recraft-ai-context.jsonld
-        type: JSONLD
-    description: >-
-      REST API for AI image and vector generation. Endpoints cover prompt-to-image (raster and vector), image-to-image,
-      inpainting, outpainting, background removal/replace/generate, vectorization, crisp and creative upscaling, region
-      erase, image variation, exploration, prompt enhancement, custom style creation, and account/credit inspection.
-      Authenticated with a Bearer API token from the Recraft profile; metered in API units ($1 = 1,000 units) and
-      rate-limited at 100 images/min and 5 requests/sec per user.
-  - aid: recraft-ai:recraft-mcp-server
-    name: Recraft MCP Server
-    tags:
-      - AI
-      - Artificial Intelligence
-      - MCP
-      - Model Context Protocol
-      - Image Generation
-    humanURL: https://www.recraft.ai/docs/mcp-reference/getting-started
-    baseURL: https://mcp.recraft.ai/mcp
-    properties:
-      - url: https://www.recraft.ai/docs/mcp-reference/getting-started
-        type: Documentation
-      - url: https://www.recraft.ai/docs/mcp-reference/remote-server
-        type: Documentation
-      - url: https://www.recraft.ai/docs/mcp-reference/local-server
-        type: Documentation
-      - url: https://www.recraft.ai/docs/mcp-reference/tools
-        type: Documentation
-      - url: https://github.com/recraft-ai/mcp-recraft-server
-        type: SourceCode
-    description: >-
-      Model Context Protocol server giving Claude, Cursor, and other MCP clients access to Recraft's image and vector
-      generation, editing, custom styles, vectorization, background tooling, and raster upscaling. Available as a hosted
-      remote MCP server (OAuth-backed, billed against subscription credits) and a self-hosted local Node.js server (API
-      key, billed against API units).
+- aid: recraft-ai:recraft-mcp-server
+  name: Recraft MCP Server
+  tags:
+  - AI
+  - Artificial Intelligence
+  - MCP
+  - Model Context Protocol
+  - Image Generation
+  humanURL: https://www.recraft.ai/docs/mcp-reference/getting-started
+  baseURL: https://mcp.recraft.ai/mcp
+  properties:
+  - url: https://www.recraft.ai/docs/mcp-reference/getting-started
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/remote-server
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/local-server
+    type: Documentation
+  - url: https://www.recraft.ai/docs/mcp-reference/tools
+    type: Documentation
+  - url: https://github.com/recraft-ai/mcp-recraft-server
+    type: SourceCode
+  description: >-
+    Model Context Protocol server giving Claude, Cursor, and other MCP clients access to Recraft's image
+    and vector generation, editing, custom styles, vectorization, background tooling, and raster upscaling.
+    Available as a hosted remote MCP server (OAuth-backed, billed against subscription credits) and a
+    self-hosted local Node.js server (API key, billed against API units).
+- aid: recraft-ai:recraft-ai-images-api
+  name: Recraft Images API
+  description: The Images API from Recraft — 16 operation(s) for images.
+  humanURL: https://www.recraft.ai/docs/api-reference/endpoints
+  baseURL: https://external.api.recraft.ai/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/recraft-ai-images-api-openapi.yml
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/getting-started
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/endpoints
+  - type: Documentation
+    url: https://external.api.recraft.ai/doc/
+  - type: JSONSchema
+    url: json-schema/recraft-image-schema.json
+  - type: JSONSchema
+    url: json-schema/recraft-style-schema.json
+  - type: JSONLD
+    url: json-ld/recraft-ai-context.jsonld
+- aid: recraft-ai:recraft-ai-prompts-api
+  name: Recraft Prompts API
+  description: The Prompts API from Recraft — 1 operation(s) for prompts.
+  humanURL: https://www.recraft.ai/docs/api-reference/endpoints
+  baseURL: https://external.api.recraft.ai/v1
+  tags:
+  - Prompts
+  properties:
+  - type: OpenAPI
+    url: openapi/recraft-ai-prompts-api-openapi.yml
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/getting-started
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/endpoints
+  - type: Documentation
+    url: https://external.api.recraft.ai/doc/
+  - type: JSONSchema
+    url: json-schema/recraft-image-schema.json
+  - type: JSONSchema
+    url: json-schema/recraft-style-schema.json
+  - type: JSONLD
+    url: json-ld/recraft-ai-context.jsonld
+- aid: recraft-ai:recraft-ai-styles-api
+  name: Recraft Styles API
+  description: The Styles API from Recraft — 1 operation(s) for styles.
+  humanURL: https://www.recraft.ai/docs/api-reference/endpoints
+  baseURL: https://external.api.recraft.ai/v1
+  tags:
+  - Styles
+  properties:
+  - type: OpenAPI
+    url: openapi/recraft-ai-styles-api-openapi.yml
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/getting-started
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/endpoints
+  - type: Documentation
+    url: https://external.api.recraft.ai/doc/
+  - type: JSONSchema
+    url: json-schema/recraft-image-schema.json
+  - type: JSONSchema
+    url: json-schema/recraft-style-schema.json
+  - type: JSONLD
+    url: json-ld/recraft-ai-context.jsonld
+- aid: recraft-ai:recraft-ai-users-api
+  name: Recraft Users API
+  description: The Users API from Recraft — 1 operation(s) for users.
+  humanURL: https://www.recraft.ai/docs/api-reference/endpoints
+  baseURL: https://external.api.recraft.ai/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/recraft-ai-users-api-openapi.yml
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/getting-started
+  - type: Documentation
+    url: https://www.recraft.ai/docs/api-reference/endpoints
+  - type: Documentation
+    url: https://external.api.recraft.ai/doc/
+  - type: JSONSchema
+    url: json-schema/recraft-image-schema.json
+  - type: JSONSchema
+    url: json-schema/recraft-style-schema.json
+  - type: JSONLD
+    url: json-ld/recraft-ai-context.jsonld
 name: Recraft
 tags:
   - AI
@@ -72,9 +127,24 @@ tags:
   - Foundation Models
   - MCP
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/recraft-ai.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/recraft/overview
   - type: AgenticAccess
     url: agentic-access/recraft-ai-agentic-access.yml
   - type: TrustCenter
