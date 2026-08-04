@@ -1,0 +1,151 @@
+{
+  "info": {
+    "_postman_id": "9fbf97dc-e9af-4cdf-9252-f6ffbda2a927",
+    "name": "Recraft Images Prompts API",
+    "description": "Recraft's external HTTP API for AI image and vector generation, editing,\ntransformation, vectorization, upscaling, background tooling, prompt\nenhancement, custom style creation, and account/credit inspection. All\nrequests are authenticated with a Bearer API token issued from your\nRecraft profile.\n\n\nContact Support:\n Name: Recraft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:42:51.000Z",
+    "updatedAt": "2026-07-28T02:42:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9fbf97dc-e9af-4cdf-9252-f6ffbda2a927"
+  },
+  "item": [
+    {
+      "name": "prompts",
+      "item": [
+        {
+          "name": "enhance",
+          "item": [
+            {
+              "name": "Enhance Prompt",
+              "id": "f911a1ec-b89b-4294-9de7-4c72c4c51447",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/prompts/enhance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "prompts",
+                    "enhance"
+                  ]
+                },
+                "description": "Expand a short user prompt with rich visual context to improve generation quality."
+              },
+              "response": [
+                {
+                  "id": "b9768759-13eb-4c20-bcb8-c31b6c5a5997",
+                  "name": "Enhanced prompt",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/prompts/enhance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "prompts",
+                        "enhance"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"prompt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:42:52.000Z",
+                  "updatedAt": "2026-07-28T02:42:52.000Z",
+                  "uid": "35240-b9768759-13eb-4c20-bcb8-c31b6c5a5997"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:52.000Z",
+              "updatedAt": "2026-07-28T02:42:52.000Z",
+              "uid": "35240-f911a1ec-b89b-4294-9de7-4c72c4c51447"
+            }
+          ],
+          "id": "4bd353f9-d618-4761-b060-3ee5b46188d9",
+          "createdAt": "2026-07-28T02:42:52.000Z",
+          "updatedAt": "2026-07-28T02:42:52.000Z",
+          "uid": "35240-4bd353f9-d618-4761-b060-3ee5b46188d9"
+        }
+      ],
+      "id": "410959a0-e0e8-4d64-bfe0-40cabe0d21d3",
+      "createdAt": "2026-07-28T02:42:52.000Z",
+      "updatedAt": "2026-07-28T02:42:52.000Z",
+      "uid": "35240-410959a0-e0e8-4d64-bfe0-40cabe0d21d3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.api.recraft.ai/v1"
+    }
+  ]
+}

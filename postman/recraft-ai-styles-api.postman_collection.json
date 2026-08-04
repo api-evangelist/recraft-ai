@@ -1,0 +1,154 @@
+{
+  "info": {
+    "_postman_id": "4e9ad45c-ffee-4865-9da0-e67efcb86c46",
+    "name": "Recraft Images Styles API",
+    "description": "Recraft's external HTTP API for AI image and vector generation, editing,\ntransformation, vectorization, upscaling, background tooling, prompt\nenhancement, custom style creation, and account/credit inspection. All\nrequests are authenticated with a Bearer API token issued from your\nRecraft profile.\n\n\nContact Support:\n Name: Recraft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:42:52.000Z",
+    "updatedAt": "2026-07-28T02:42:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4e9ad45c-ffee-4865-9da0-e67efcb86c46"
+  },
+  "item": [
+    {
+      "name": "styles",
+      "item": [
+        {
+          "name": "Create Custom Style From Reference Images",
+          "id": "2997e694-7e19-4466-808c-6f23a50bb798",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": "(Required) Base style group (e.g. `digital_illustration`).",
+                  "key": "style",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "file",
+                  "value": "<binary>",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/styles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "styles"
+              ]
+            },
+            "description": "Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls."
+          },
+          "response": [
+            {
+              "id": "3714f56c-5502-4486-8b34-567fcc7121c2",
+              "name": "Style reference",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) Base style group (e.g. `digital_illustration`).",
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/styles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "styles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"credits\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:42:53.000Z",
+              "updatedAt": "2026-07-28T02:42:53.000Z",
+              "uid": "35240-3714f56c-5502-4486-8b34-567fcc7121c2"
+            }
+          ],
+          "createdAt": "2026-07-28T02:42:53.000Z",
+          "updatedAt": "2026-07-28T02:42:53.000Z",
+          "uid": "35240-2997e694-7e19-4466-808c-6f23a50bb798"
+        }
+      ],
+      "id": "802e5012-f01a-4268-881c-679d7cf733b0",
+      "createdAt": "2026-07-28T02:42:53.000Z",
+      "updatedAt": "2026-07-28T02:42:53.000Z",
+      "uid": "35240-802e5012-f01a-4268-881c-679d7cf733b0"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.api.recraft.ai/v1"
+    }
+  ]
+}

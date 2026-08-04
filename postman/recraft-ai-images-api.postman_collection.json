@@ -1,0 +1,2452 @@
+{
+  "info": {
+    "_postman_id": "e465508c-c41b-46d9-8350-c707852ce437",
+    "name": "Recraft Images API",
+    "description": "Recraft's external HTTP API for AI image and vector generation, editing,\ntransformation, vectorization, upscaling, background tooling, prompt\nenhancement, custom style creation, and account/credit inspection. All\nrequests are authenticated with a Bearer API token issued from your\nRecraft profile.\n\n\nContact Support:\n Name: Recraft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:42:50.000Z",
+    "updatedAt": "2026-07-28T02:42:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e465508c-c41b-46d9-8350-c707852ce437"
+  },
+  "item": [
+    {
+      "name": "images",
+      "item": [
+        {
+          "name": "generations",
+          "item": [
+            {
+              "name": "raster",
+              "item": [
+                {
+                  "name": "Create Raster Image",
+                  "id": "f3145fe0-361e-48ce-ba27-26d5cfd79b93",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/generations/raster",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "generations",
+                        "raster"
+                      ]
+                    },
+                    "description": "Generate raster-only images (PNG/WEBP/JPG). Restricts model selection to raster variants."
+                  },
+                  "response": [
+                    {
+                      "id": "d93eb9c9-fca4-4f0a-80b8-3b0c15f090b1",
+                      "name": "Raster image set",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/images/generations/raster",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "images",
+                            "generations",
+                            "raster"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:42:51.000Z",
+                      "updatedAt": "2026-07-28T02:42:51.000Z",
+                      "uid": "35240-d93eb9c9-fca4-4f0a-80b8-3b0c15f090b1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-f3145fe0-361e-48ce-ba27-26d5cfd79b93"
+                }
+              ],
+              "id": "91e0bfcc-b66b-47a0-b40a-38704a0212bf",
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-91e0bfcc-b66b-47a0-b40a-38704a0212bf"
+            },
+            {
+              "name": "vector",
+              "item": [
+                {
+                  "name": "Create Vector Image",
+                  "id": "e092a2ab-b44c-4f0c-a6a6-d840f1312424",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/generations/vector",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "generations",
+                        "vector"
+                      ]
+                    },
+                    "description": "Generate vector-only SVG images. Restricts model selection to vector variants."
+                  },
+                  "response": [
+                    {
+                      "id": "a17cd221-473e-4594-83da-c83b46de2e82",
+                      "name": "Vector image set",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/images/generations/vector",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "images",
+                            "generations",
+                            "vector"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:42:51.000Z",
+                      "updatedAt": "2026-07-28T02:42:51.000Z",
+                      "uid": "35240-a17cd221-473e-4594-83da-c83b46de2e82"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-e092a2ab-b44c-4f0c-a6a6-d840f1312424"
+                }
+              ],
+              "id": "a54c83cd-dfe4-46d6-b813-e384554cf0da",
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-a54c83cd-dfe4-46d6-b813-e384554cf0da"
+            },
+            {
+              "name": "Create Image From Prompt",
+              "id": "1cfaec43-0233-467f-ad30-11960630ce92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/generations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "generations"
+                  ]
+                },
+                "description": "Generate one or more images from a text prompt. Supports both raster\nand vector output across all Recraft model versions (V2, V3, V4, V4.1)\nand OpenAI-style request shape. Optionally accepts a `style`, `substyle`,\n`style_id` (for custom styles), `size`, and `controls` block with brand\ncontrols such as colors and background color.\n"
+              },
+              "response": [
+                {
+                  "id": "1da086bd-56d1-4bda-966c-e52d4cf2de31",
+                  "name": "Image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/generations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "generations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-1da086bd-56d1-4bda-966c-e52d4cf2de31"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-1cfaec43-0233-467f-ad30-11960630ce92"
+            }
+          ],
+          "id": "28eee8b9-71a4-4976-aa41-2dbe5faa1457",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-28eee8b9-71a4-4976-aa41-2dbe5faa1457"
+        },
+        {
+          "name": "imageToImage",
+          "item": [
+            {
+              "name": "Transform Image To Image",
+              "id": "7e72a40b-99b3-465b-97fd-d0e4e206d353",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "strength",
+                      "value": "0.5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "substyle",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style_id",
+                      "value": "<uuid>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "n",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    },
+                    {
+                      "key": "negative_prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/imageToImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "imageToImage"
+                  ]
+                },
+                "description": "Generate a variation of an input image preserving composition while applying a new prompt or style."
+              },
+              "response": [
+                {
+                  "id": "28db2a9c-e7b3-483b-b5b2-9609badd1397",
+                  "name": "Transformed image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "strength",
+                          "value": "0.5",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "substyle",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style_id",
+                          "value": "<uuid>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "n",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        },
+                        {
+                          "key": "negative_prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/imageToImage",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "imageToImage"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-28db2a9c-e7b3-483b-b5b2-9609badd1397"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-7e72a40b-99b3-465b-97fd-d0e4e206d353"
+            }
+          ],
+          "id": "f0eca838-063b-4dce-9393-9e5b75d441a3",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-f0eca838-063b-4dce-9393-9e5b75d441a3"
+        },
+        {
+          "name": "inpaint",
+          "item": [
+            {
+              "name": "Inpaint Masked Region",
+              "id": "675c63b9-e77c-40fa-a4f1-dc60534b521d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                      "key": "mask",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "strength",
+                      "value": "0.5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "substyle",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style_id",
+                      "value": "<uuid>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "n",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    },
+                    {
+                      "key": "negative_prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/inpaint",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "inpaint"
+                  ]
+                },
+                "description": "Replace masked regions of an input image with content matching a prompt."
+              },
+              "response": [
+                {
+                  "id": "05cc152e-bcaf-480e-92ed-df46be167039",
+                  "name": "Inpainted image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                          "key": "mask",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "strength",
+                          "value": "0.5",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "substyle",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style_id",
+                          "value": "<uuid>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "n",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        },
+                        {
+                          "key": "negative_prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/inpaint",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "inpaint"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-05cc152e-bcaf-480e-92ed-df46be167039"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-675c63b9-e77c-40fa-a4f1-dc60534b521d"
+            }
+          ],
+          "id": "0c4662d0-0b1e-44a2-aec2-11a8198f2749",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-0c4662d0-0b1e-44a2-aec2-11a8198f2749"
+        },
+        {
+          "name": "outpaint",
+          "item": [
+            {
+              "name": "Outpaint Image Beyond Edges",
+              "id": "cdb0cb2e-1021-4cda-a81a-9c35f1db3dae",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "outpaint_top",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "outpaint_bottom",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "outpaint_left",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "outpaint_right",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/outpaint",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "outpaint"
+                  ]
+                },
+                "description": "Extend an image beyond its original boundaries using AI-generated content."
+              },
+              "response": [
+                {
+                  "id": "9a49b611-70dc-4592-a431-fadf8878350e",
+                  "name": "Outpainted image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "outpaint_top",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "outpaint_bottom",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "outpaint_left",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "outpaint_right",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/outpaint",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "outpaint"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-9a49b611-70dc-4592-a431-fadf8878350e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-cdb0cb2e-1021-4cda-a81a-9c35f1db3dae"
+            }
+          ],
+          "id": "3b432c5b-f69e-4186-be89-4d38a3cb4510",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-3b432c5b-f69e-4186-be89-4d38a3cb4510"
+        },
+        {
+          "name": "replaceBackground",
+          "item": [
+            {
+              "name": "Replace Background",
+              "id": "1609b5b3-4ab3-4095-ac33-846b900276c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "n",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "b64_json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/replaceBackground",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "replaceBackground"
+                  ]
+                },
+                "description": "Replace the detected background of an input image while preserving the subject."
+              },
+              "response": [
+                {
+                  "id": "2810d8b9-5de0-4fca-9152-749ac8869efb",
+                  "name": "Image set with replaced background",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "n",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "b64_json",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/replaceBackground",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "replaceBackground"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-2810d8b9-5de0-4fca-9152-749ac8869efb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-1609b5b3-4ab3-4095-ac33-846b900276c2"
+            }
+          ],
+          "id": "2e124354-2ae0-4f15-bcb6-f8f54180c663",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-2e124354-2ae0-4f15-bcb6-f8f54180c663"
+        },
+        {
+          "name": "generateBackground",
+          "item": [
+            {
+              "name": "Generate Background Behind Subject",
+              "id": "a696c873-e2ec-4794-a128-c2684b9f8e22",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                      "key": "mask",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "strength",
+                      "value": "0.5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "substyle",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style_id",
+                      "value": "<uuid>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "n",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "b64_json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "negative_prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/generateBackground",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "generateBackground"
+                  ]
+                },
+                "description": "Fill the masked background region with prompt-controlled generated content."
+              },
+              "response": [
+                {
+                  "id": "9c1ace32-9a13-4490-8cad-cecd005452c1",
+                  "name": "Image set with generated background",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                          "key": "mask",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "strength",
+                          "value": "0.5",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "substyle",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style_id",
+                          "value": "<uuid>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "n",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "b64_json",
+                          "type": "text"
+                        },
+                        {
+                          "key": "negative_prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/generateBackground",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "generateBackground"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-9c1ace32-9a13-4490-8cad-cecd005452c1"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-a696c873-e2ec-4794-a128-c2684b9f8e22"
+            }
+          ],
+          "id": "d4d3a58d-68a2-4261-a3cd-fd264a082aba",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-d4d3a58d-68a2-4261-a3cd-fd264a082aba"
+        },
+        {
+          "name": "vectorize",
+          "item": [
+            {
+              "name": "Vectorize Raster Image",
+              "id": "d01df153-cecf-44d5-bf9e-7fc6cde36bbd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "b64_json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/vectorize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "vectorize"
+                  ]
+                },
+                "description": "Convert a raster image to SVG vector format."
+              },
+              "response": [
+                {
+                  "id": "55c3ebea-316a-411a-bd61-a5be6d2fca22",
+                  "name": "Vector image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "b64_json",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/vectorize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "vectorize"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-55c3ebea-316a-411a-bd61-a5be6d2fca22"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-d01df153-cecf-44d5-bf9e-7fc6cde36bbd"
+            }
+          ],
+          "id": "bcc2df2f-7286-4175-bc0b-af727ea6af29",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-bcc2df2f-7286-4175-bc0b-af727ea6af29"
+        },
+        {
+          "name": "removeBackground",
+          "item": [
+            {
+              "name": "Remove Image Background",
+              "id": "8dd4a4c1-04e8-43d9-bf3a-8e854de22575",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/removeBackground",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "removeBackground"
+                  ]
+                },
+                "description": "Strip the background from an input image and return a transparent PNG."
+              },
+              "response": [
+                {
+                  "id": "bd309d8d-b07d-43ea-b7a3-2984f9fb2d17",
+                  "name": "Image set with background removed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/removeBackground",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "removeBackground"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-bd309d8d-b07d-43ea-b7a3-2984f9fb2d17"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-8dd4a4c1-04e8-43d9-bf3a-8e854de22575"
+            }
+          ],
+          "id": "0c5890fb-6730-44c3-bf47-1e7079e1dba4",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-0c5890fb-6730-44c3-bf47-1e7079e1dba4"
+        },
+        {
+          "name": "crispUpscale",
+          "item": [
+            {
+              "name": "Crisp Upscale Image",
+              "id": "94439c2a-d319-4ab7-bf4b-205c49ed1a1e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/crispUpscale",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "crispUpscale"
+                  ]
+                },
+                "description": "Upscale an image with emphasis on sharpness and edge clarity."
+              },
+              "response": [
+                {
+                  "id": "f9f21476-cf9e-4d74-870a-8374ade2a69a",
+                  "name": "Upscaled image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/crispUpscale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "crispUpscale"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-f9f21476-cf9e-4d74-870a-8374ade2a69a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-94439c2a-d319-4ab7-bf4b-205c49ed1a1e"
+            }
+          ],
+          "id": "48a90eec-9b86-405e-ab2b-4d170925f93f",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-48a90eec-9b86-405e-ab2b-4d170925f93f"
+        },
+        {
+          "name": "creativeUpscale",
+          "item": [
+            {
+              "name": "Creative Upscale Image",
+              "id": "17d5da15-c4f3-4a46-a1b9-f43cbef96394",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/creativeUpscale",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "creativeUpscale"
+                  ]
+                },
+                "description": "Upscale an image with emphasis on adding creative detail to faces and objects."
+              },
+              "response": [
+                {
+                  "id": "1fe56e76-78fc-415f-8ff0-39b198d300c4",
+                  "name": "Upscaled image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/creativeUpscale",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "creativeUpscale"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-1fe56e76-78fc-415f-8ff0-39b198d300c4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-17d5da15-c4f3-4a46-a1b9-f43cbef96394"
+            }
+          ],
+          "id": "2b185e42-4a54-4e7a-9480-6f682ce55975",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-2b185e42-4a54-4e7a-9480-6f682ce55975"
+        },
+        {
+          "name": "eraseRegion",
+          "item": [
+            {
+              "name": "Erase Masked Region",
+              "id": "54037cc4-0358-4764-99ca-d4bd78c593de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                      "key": "mask",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "strength",
+                      "value": "0.5",
+                      "type": "text"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "substyle",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "style_id",
+                      "value": "<uuid>",
+                      "type": "text"
+                    },
+                    {
+                      "key": "n",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "b64_json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "negative_prompt",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/eraseRegion",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "eraseRegion"
+                  ]
+                },
+                "description": "Remove the masked region from an image cleanly (object removal)."
+              },
+              "response": [
+                {
+                  "id": "8420f107-f781-4ac8-ad7f-9e9f2da728f5",
+                  "name": "Image set with region erased",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Binary mask image. White pixels mark the region to edit.",
+                          "key": "mask",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "strength",
+                          "value": "0.5",
+                          "type": "text"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "substyle",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "style_id",
+                          "value": "<uuid>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "n",
+                          "value": "<integer>",
+                          "type": "text"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "b64_json",
+                          "type": "text"
+                        },
+                        {
+                          "key": "negative_prompt",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/eraseRegion",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "eraseRegion"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-8420f107-f781-4ac8-ad7f-9e9f2da728f5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-54037cc4-0358-4764-99ca-d4bd78c593de"
+            }
+          ],
+          "id": "58ed8877-f3a6-4c8a-8816-97fa28e948d4",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-58ed8877-f3a6-4c8a-8816-97fa28e948d4"
+        },
+        {
+          "name": "variateImage",
+          "item": [
+            {
+              "name": "Variate Image",
+              "id": "0d5c5dde-c064-4a4c-8a55-8f0940a5ef91",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ",
+                      "key": "image",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": " (This can only be one of url,b64_json)",
+                      "key": "response_format",
+                      "value": "url",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/variateImage",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "variateImage"
+                  ]
+                },
+                "description": "Produce visual remixes of an input image preserving its overall feel."
+              },
+              "response": [
+                {
+                  "id": "cbb50fe2-3ceb-44c9-8234-2a247a1de483",
+                  "name": "Image variations",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file"
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/variateImage",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "variateImage"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-cbb50fe2-3ceb-44c9-8234-2a247a1de483"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-0d5c5dde-c064-4a4c-8a55-8f0940a5ef91"
+            }
+          ],
+          "id": "aaaea88a-c6d8-41e0-8d24-18a2a1fea3bc",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-aaaea88a-c6d8-41e0-8d24-18a2a1fea3bc"
+        },
+        {
+          "name": "explore",
+          "item": [
+            {
+              "name": "similar",
+              "item": [
+                {
+                  "name": "Explore Similar Images",
+                  "id": "0ddd1aed-0b2e-40c1-908c-a8b83e75dd52",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "image",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": " (This can only be one of url,b64_json)",
+                          "key": "response_format",
+                          "value": "url",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/explore/similar",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "explore",
+                        "similar"
+                      ]
+                    },
+                    "description": "Generate images that resemble a source image while exploring stylistic neighbours."
+                  },
+                  "response": [
+                    {
+                      "id": "feaddb28-b035-4e6a-9a04-5aad1799a302",
+                      "name": "Image set",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "image",
+                              "type": "file"
+                            },
+                            {
+                              "description": " (This can only be one of url,b64_json)",
+                              "key": "response_format",
+                              "value": "url",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/images/explore/similar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "images",
+                            "explore",
+                            "similar"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:42:51.000Z",
+                      "updatedAt": "2026-07-28T02:42:51.000Z",
+                      "uid": "35240-feaddb28-b035-4e6a-9a04-5aad1799a302"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-0ddd1aed-0b2e-40c1-908c-a8b83e75dd52"
+                }
+              ],
+              "id": "f7f27c66-4ed6-4a97-ade8-0fe407b99298",
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-f7f27c66-4ed6-4a97-ade8-0fe407b99298"
+            },
+            {
+              "name": "Explore Diverse Variations",
+              "id": "b9213d2f-821e-4e3c-9d35-ed0936d7278d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/images/explore",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "explore"
+                  ]
+                },
+                "description": "Generate a wide range of visual variations from a prompt to support creative discovery."
+              },
+              "response": [
+                {
+                  "id": "1f53bbb3-508f-4cc9-81cb-a1b9536bf1b6",
+                  "name": "Image set",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"model\": \"recraftv4_1\",\n  \"style\": \"<string>\",\n  \"substyle\": \"<string>\",\n  \"style_id\": \"<uuid>\",\n  \"size\": \"<string>\",\n  \"n\": 1,\n  \"response_format\": \"url\",\n  \"negative_prompt\": \"<string>\",\n  \"controls\": {\n    \"colors\": [\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      },\n      {\n        \"rgb\": [\n          \"<integer>\",\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"std\": \"<number>\"\n      }\n    ],\n    \"background_color\": {\n      \"rgb\": [\n        \"<integer>\",\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"std\": \"<number>\"\n    },\n    \"no_text\": \"<boolean>\",\n    \"artistic_level\": \"<integer>\"\n  },\n  \"text_layout\": [\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"text\": \"<string>\",\n      \"bbox\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/images/explore",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "explore"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"created\": \"<long>\",\n  \"credits\": \"<integer>\",\n  \"data\": [\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"image_id\": \"<uuid>\",\n      \"url\": \"<uri>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:42:51.000Z",
+                  "updatedAt": "2026-07-28T02:42:51.000Z",
+                  "uid": "35240-1f53bbb3-508f-4cc9-81cb-a1b9536bf1b6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:51.000Z",
+              "updatedAt": "2026-07-28T02:42:51.000Z",
+              "uid": "35240-b9213d2f-821e-4e3c-9d35-ed0936d7278d"
+            }
+          ],
+          "id": "85807794-d778-4328-892a-569a9b4c0ab1",
+          "createdAt": "2026-07-28T02:42:51.000Z",
+          "updatedAt": "2026-07-28T02:42:51.000Z",
+          "uid": "35240-85807794-d778-4328-892a-569a9b4c0ab1"
+        }
+      ],
+      "id": "e65c950a-b233-4b2b-b10d-ca033bf9839a",
+      "createdAt": "2026-07-28T02:42:51.000Z",
+      "updatedAt": "2026-07-28T02:42:51.000Z",
+      "uid": "35240-e65c950a-b233-4b2b-b10d-ca033bf9839a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.api.recraft.ai/v1"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "provider": "recraft-ai",
+  "sources": [
+    "recraft-ai-images-api-openapi.yml",
+    "recraft-ai-prompts-api-openapi.yml",
+    "recraft-ai-styles-api-openapi.yml",
+    "recraft-ai-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "recraft-ai-images-api-openapi.yml",
+    "recraft-ai-prompts-api-openapi.yml",
+    "recraft-ai-styles-api-openapi.yml",
+    "recraft-ai-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

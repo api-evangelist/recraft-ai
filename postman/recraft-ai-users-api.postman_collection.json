@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "53093701-0b86-4992-a876-56d2880607ba",
+    "name": "Recraft Images Users API",
+    "description": "Recraft's external HTTP API for AI image and vector generation, editing,\ntransformation, vectorization, upscaling, background tooling, prompt\nenhancement, custom style creation, and account/credit inspection. All\nrequests are authenticated with a Bearer API token issued from your\nRecraft profile.\n\n\nContact Support:\n Name: Recraft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:42:53.000Z",
+    "updatedAt": "2026-07-28T02:42:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-53093701-0b86-4992-a876-56d2880607ba"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "me",
+          "item": [
+            {
+              "name": "Get Current User And Credit Balance",
+              "id": "efd3b08f-11ee-4d23-beac-0c69fddbd96c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                },
+                "description": "Retrieve the authenticated user's profile, plan, and remaining API unit balance."
+              },
+              "response": [
+                {
+                  "id": "7723485d-057e-4b50-9eca-ddcffeba12e0",
+                  "name": "Current user",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/me",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "me"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"email\": \"<email>\",\n  \"credits\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:42:53.000Z",
+                  "updatedAt": "2026-07-28T02:42:53.000Z",
+                  "uid": "35240-7723485d-057e-4b50-9eca-ddcffeba12e0"
+                }
+              ],
+              "createdAt": "2026-07-28T02:42:53.000Z",
+              "updatedAt": "2026-07-28T02:42:53.000Z",
+              "uid": "35240-efd3b08f-11ee-4d23-beac-0c69fddbd96c"
+            }
+          ],
+          "id": "870ffd81-dac0-4aa7-b457-ade2079b0431",
+          "createdAt": "2026-07-28T02:42:53.000Z",
+          "updatedAt": "2026-07-28T02:42:53.000Z",
+          "uid": "35240-870ffd81-dac0-4aa7-b457-ade2079b0431"
+        }
+      ],
+      "id": "e6e67f57-6fcd-4a56-9152-29c1489acd40",
+      "createdAt": "2026-07-28T02:42:53.000Z",
+      "updatedAt": "2026-07-28T02:42:53.000Z",
+      "uid": "35240-e6e67f57-6fcd-4a56-9152-29c1489acd40"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.api.recraft.ai/v1"
+    }
+  ]
+}
