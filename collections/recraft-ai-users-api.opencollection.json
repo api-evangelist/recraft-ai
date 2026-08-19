@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recraft Images Users API",
+    "version": "2026-05-22"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Current User And Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://external.api.recraft.ai/v1/users/me"
+          },
+          "docs": "Retrieve the authenticated user's profile, plan, and remaining API unit balance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

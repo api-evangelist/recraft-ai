@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Recraft Images Styles API",
+    "version": "2026-05-22"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Styles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Custom Style From Reference Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://external.api.recraft.ai/v1/styles",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Upload up to five reference images to create a reusable custom style for V3 models. Returns a `style_id` to use in subsequent generation calls."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
