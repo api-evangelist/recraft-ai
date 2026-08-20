@@ -4,6 +4,10 @@ apis:
 - aid: recraft-ai:recraft-mcp-server
   name: Recraft MCP Server
   tags:
+  - Artificial Intelligence
+  - MCP
+  - Image-Generation
+  tags_raw:
   - AI
   - Artificial Intelligence
   - MCP
@@ -33,6 +37,8 @@ apis:
   humanURL: https://www.recraft.ai/docs/api-reference/endpoints
   baseURL: https://external.api.recraft.ai/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -99,6 +105,8 @@ apis:
   humanURL: https://www.recraft.ai/docs/api-reference/endpoints
   baseURL: https://external.api.recraft.ai/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -117,6 +125,15 @@ apis:
     url: json-ld/recraft-ai-context.jsonld
 name: Recraft
 tags:
+  - Artificial Intelligence
+  - Image-Generation
+  - Generative AI
+  - Vector Graphics
+  - Brand Design
+  - Design Tools
+  - Foundation Models
+  - MCP
+tags_raw:
   - AI
   - Artificial Intelligence
   - Image Generation
