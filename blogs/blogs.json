@@ -6,19 +6,17 @@
       "feed_url": "https://www.recraft.ai/blog/discover-the-power-of-recrafts-image-generation-api",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
     },
     {
       "source": "https://www.recraft.ai/blog",
       "feed_url": "https://www.recraft.ai/blog",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
     }
   ],
   "post_count": 29,
-  "fetched": "2026-08-15T12:11:08Z",
+  "fetched": "2026-08-22T20:20:02Z",
   "agent_pulled": "2026-07-04"
 }
