@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Recraft Images API
   description: 'Recraft''s external HTTP API for AI image and vector generation, editing,
@@ -9,9 +9,7 @@ info:
 
     requests are authenticated with a Bearer API token issued from your
 
-    Recraft profile.
-
-    '
+    Recraft profile.'
   version: '2026-05-22'
   contact:
     name: Recraft
@@ -36,9 +34,7 @@ paths:
 
         `style_id` (for custom styles), `size`, and `controls` block with brand
 
-        controls such as colors and background color.
-
-        '
+        controls such as colors and background color.'
       requestBody:
         required: true
         content:
@@ -356,6 +352,19 @@ paths:
       - Images
 components:
   schemas:
+    FileOnlyRequest:
+      type: object
+      required:
+      - image
+      properties:
+        image:
+          type: string
+          format: binary
+        response_format:
+          type: string
+          enum:
+          - url
+          - b64_json
     BackgroundRequest:
       type: object
       required:
@@ -411,23 +420,18 @@ components:
           - b64_json
         negative_prompt:
           type: string
-    Color:
+    ImageSet:
       type: object
-      required:
-      - rgb
       properties:
-        rgb:
+        created:
+          type: integer
+          format: int64
+        credits:
+          type: integer
+        data:
           type: array
-          minItems: 3
-          maxItems: 3
           items:
-            type: integer
-            minimum: 0
-            maximum: 255
-        std:
-          type: number
-          minimum: 0
-          maximum: 1
+            $ref: '#/components/schemas/Image'
     OutpaintRequest:
       type: object
       required:
@@ -450,6 +454,39 @@ components:
           type: string
         style:
           type: string
+    BrandControls:
+      type: object
+      description: Brand-level controls applied during generation.
+      properties:
+        colors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Color'
+        background_color:
+          $ref: '#/components/schemas/Color'
+        no_text:
+          type: boolean
+        artistic_level:
+          type: integer
+          minimum: 0
+          maximum: 5
+    Color:
+      type: object
+      required:
+      - rgb
+      properties:
+        rgb:
+          type: array
+          minItems: 3
+          maxItems: 3
+          items:
+            type: integer
+            minimum: 0
+            maximum: 255
+        std:
+          type: number
+          minimum: 0
+          maximum: 1
     Image:
       type: object
       properties:
@@ -464,19 +501,6 @@ components:
           type: string
         revised_prompt:
           type: string
-    FileOnlyRequest:
-      type: object
-      required:
-      - image
-      properties:
-        image:
-          type: string
-          format: binary
-        response_format:
-          type: string
-          enum:
-          - url
-          - b64_json
     GenerationRequest:
       type: object
       required:
@@ -539,22 +563,6 @@ components:
                 type: array
                 items:
                   type: number
-    BrandControls:
-      type: object
-      description: Brand-level controls applied during generation.
-      properties:
-        colors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Color'
-        background_color:
-          $ref: '#/components/schemas/Color'
-        no_text:
-          type: boolean
-        artistic_level:
-          type: integer
-          minimum: 0
-          maximum: 5
     MaskedEditRequest:
       allOf:
       - $ref: '#/components/schemas/ImageToImageRequest'
@@ -566,18 +574,6 @@ components:
             type: string
             format: binary
             description: Binary mask image. White pixels mark the region to edit.
-    ImageSet:
-      type: object
-      properties:
-        created:
-          type: integer
-          format: int64
-        credits:
-          type: integer
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
   securitySchemes:
     bearerAuth:
       type: http
